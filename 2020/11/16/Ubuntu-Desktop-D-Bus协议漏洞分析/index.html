@@ -17,15 +17,15 @@
 <meta property="og:site_name" content="凉生霜气清，月上灯火明">
 <meta property="og:description" content="简介： 文章首发于云众可信：https:&#x2F;&#x2F;www.sec-in.com&#x2F;article&#x2F;649 译文声明 本文是翻译文章，文章原作者Vaisha Bernard，文章来源：https:&#x2F;&#x2F;www.eyecontrol.nl 原文地址：https:&#x2F;&#x2F;www.eyecontrol.nl&#x2F;blog&#x2F;the-story-of-3-cves-in-ubuntu-desktop.html 译文仅供参考，具">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/16/DkTcoF.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/16/DkT6dU.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112108.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112122.jpg">
 <meta property="article:published_time" content="2020-11-16T05:51:40.000Z">
-<meta property="article:modified_time" content="2021-04-05T04:58:19.715Z">
+<meta property="article:modified_time" content="2021-04-14T03:22:37.474Z">
 <meta property="article:author" content="foxcookie">
 <meta property="article:tag" content="翻译">
 <meta property="article:tag" content="CVE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z3.ax1x.com/2020/11/16/DkTcoF.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112108.png">
   
     <link rel="alternative" href="/atom.xml" title="凉生霜气清，月上灯火明" type="application/atom+xml">
   
@@ -204,12 +204,12 @@
 <p>译文仅供参考，具体内容表达以及含义以原文为准</p>
 <a id="more"></a>
 
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>当我休息了一段时间后，我决定在我安装的Ubuntu桌面中寻找一些bug。我的目标是D-Bus接口。</p>
+<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>当我休息了一段时间后，我决定在我安装的Ubuntu桌面中寻找一些bug。我的目标是D-Bus接口。</p>
 <p>D-Bus（桌面总线）是一种进程间通信（IPC）和远程过程调用（RPC）机制，它允许在同一台机器上并发运行的多个进程之间进行通信。现在许多Linux发行版都在使用它。</p>
 <p>在Linux桌面环境中，我们有一个单独的系统总线，用于用户进程和系统进程之间的通信，对于每个登录会话，我们有一个会话总线，用于单个桌面会话中进程之间的通信。</p>
 <p>我的目标是系统总线。系统进程打开一个接口，以便与用户进行通信，这听起来像是一个很棒的切入点！</p>
-<h2 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h2><p>我的第一个目标是理解 D-Bus 的语法和用法。有一个优秀的交互式工具叫做D-Feet，它可以使我们的工作更加轻松</p>
-<p><img src="https://z3.ax1x.com/2020/11/16/DkTcoF.png" alt="DkTcoF.png"></p>
+<h4 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h4><p>我的第一个目标是理解 D-Bus 的语法和用法。有一个优秀的交互式工具叫做D-Feet，它可以使我们的工作更加轻松</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112108.png" alt="dfeet"></p>
 <p>在D-Bus规范中有一个清晰的层次结构。对象是指在D-Bus上公开自己的进程。一个对象可以实现多个接口，而每个接口可以有多个方法。D-Bus使用接口为方法提供命名空间机制。接口还具有属性，这些属性是类型变量，通常可以读取，有时也可以更改。</p>
 <p>D-Feet显示了实现的接口和可用的方法。在后台，它使用”org.freedesktop.DBus.Introspectable”接口的内省方法来完成这项工作，该接口由许多对象实现。</p>
 <p>除了D-Feet之外，与D-Bus交互的最直接的方式是通过dbus-send shell命令。例如，下一个命令调用”org.freedesktop.DBus”接口上的ListNames方法，并生成D-Feet在左侧显示的列表。</p>
@@ -217,9 +217,9 @@
 
 <p>对我来说，处理D-Bus方法的多个交互调用的最直观的方法是使用python-dbus模块。用D-Bus方法编写任何交互脚本都很容易。</p>
 <p>许多方法都使用PolicyKit进行保护，以确保调用用户具有执行操作的权利。您可能见过这些弹出窗口，它们是由PolicyKit保护的D-Bus方法调用的结果。</p>
-<p><img src="https://z3.ax1x.com/2020/11/16/DkT6dU.jpg" alt="DkT6dU.jpg"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112122.jpg" alt="polkit"></p>
 <p>我最感兴趣的是任何人都可以在不进行身份验证的情况下触发的漏洞，因此我将重点放在没有使用PolicyKit保护的方法上。</p>
-<h2 id="Aptdaemon信息公开-CVE-2020-15703"><a href="#Aptdaemon信息公开-CVE-2020-15703" class="headerlink" title="Aptdaemon信息公开(CVE-2020-15703)"></a>Aptdaemon信息公开(CVE-2020-15703)</h2><p>我发现的第一个bug涉及aptdaemon。在使用D-Feet对”org.apt.debian”对象进行内部检测之后，您将在processlist中注意到一个正在运行的新进程。</p>
+<h4 id="Aptdaemon信息公开-CVE-2020-15703"><a href="#Aptdaemon信息公开-CVE-2020-15703" class="headerlink" title="Aptdaemon信息公开(CVE-2020-15703)"></a>Aptdaemon信息公开(CVE-2020-15703)</h4><p>我发现的第一个bug涉及aptdaemon。在使用D-Feet对”org.apt.debian”对象进行内部检测之后，您将在processlist中注意到一个正在运行的新进程。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">bin</span>/python3 /usr/sbin/aptd</span><br></pre></td></tr></table></figure>
 
 <p>因此aptdaemon是用python写的。这是我可以更深入的研究代码，但这一次我决定省点精力，我只想知道后台发生了什么系统调用，所以我在进程上生成了一个strace。</p>
@@ -251,14 +251,14 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OSError: [Errno <span class="number">0</span>] Bad magic number: <span class="string">&#x27;/tmp/LC_MESSAGES/aptdaemon.mo&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>但是它泄露了我不应该知道的信息：文件系统上是否存在任何文件。例如在”/root”中，没有特权的用户不应该能够查看这些文件。一个非常小的bug，但它仍然是一个bug。</p>
-<h2 id="PackageKit信息公开-CVE-2020-16121"><a href="#PackageKit信息公开-CVE-2020-16121" class="headerlink" title="PackageKit信息公开(CVE-2020-16121)"></a>PackageKit信息公开(CVE-2020-16121)</h2><p>我在PackageKit中发现了一个类似的bug。在经过aptdaemon的全部测试后，这个程序会立即弹出。</p>
+<h4 id="PackageKit信息公开-CVE-2020-16121"><a href="#PackageKit信息公开-CVE-2020-16121" class="headerlink" title="PackageKit信息公开(CVE-2020-16121)"></a>PackageKit信息公开(CVE-2020-16121)</h4><p>我在PackageKit中发现了一个类似的bug。在经过aptdaemon的全部测试后，这个程序会立即弹出。</p>
 <p>packagekit对象上的”/org/freedesktop/PackageKit”接口有一个方法CreateTransaction()。该方法将创建一个事务对象，该对象具有InstallFiles()、GetFilesLocal()和GetDetailsLocal()方法。所有方法都有一个文件路径列表作为它们的参数。</p>
 <p>同样，这允许我们确定文件系统上是否存在任何文件，但是这次，如果一个文件存在，我们还会得到一个公开MIME类型的错误消息。</p>
 <p>一个简单的python脚本演示了这一点。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dbus</span><br><span class="line"></span><br><span class="line">bus = dbus.SystemBus()</span><br><span class="line"></span><br><span class="line">apt_dbus_object = bus.get_object(<span class="string">&quot;org.freedesktop.PackageKit&quot;</span>, <span class="string">&quot;/org/freedesktop/PackageKit&quot;</span>)</span><br><span class="line">apt_dbus_interface = dbus.Interface(apt_dbus_object, <span class="string">&quot;org.freedesktop.PackageKit&quot;</span>)  </span><br><span class="line"></span><br><span class="line">trans = apt_dbus_interface.CreateTransaction()</span><br><span class="line"></span><br><span class="line">apt_trans_dbus_object = bus.get_object(<span class="string">&quot;org.freedesktop.PackageKit&quot;</span>, trans)</span><br><span class="line">apt_trans_dbus_interface = dbus.Interface(apt_trans_dbus_object, <span class="string">&quot;org.freedesktop.PackageKit.Transaction&quot;</span>)</span><br><span class="line"></span><br><span class="line">apt_trans_dbus_interface.InstallFiles(<span class="number">0</span>, [<span class="string">&quot;/root/.bashrc&quot;</span>])</span><br></pre></td></tr></table></figure>
 
 <p>错误消息：不支持MIME类型文本/纯文本。</p>
-<h2 id="Blueman本地特权升级或拒绝服务-CVE-2020-15238"><a href="#Blueman本地特权升级或拒绝服务-CVE-2020-15238" class="headerlink" title="Blueman本地特权升级或拒绝服务(CVE-2020-15238)"></a>Blueman本地特权升级或拒绝服务(CVE-2020-15238)</h2><p>这个bug更有趣一些。利用”org.blueman.Mechanism”的D-Bus方法，我注意到我从来没有被要求授权，这将是一个更有趣的目标。</p>
+<h4 id="Blueman本地特权升级或拒绝服务-CVE-2020-15238"><a href="#Blueman本地特权升级或拒绝服务-CVE-2020-15238" class="headerlink" title="Blueman本地特权升级或拒绝服务(CVE-2020-15238)"></a>Blueman本地特权升级或拒绝服务(CVE-2020-15238)</h4><p>这个bug更有趣一些。利用”org.blueman.Mechanism”的D-Bus方法，我注意到我从来没有被要求授权，这将是一个更有趣的目标。</p>
 <p>软件包的开发人员后来证实，Debian软件包确实存在一个问题：它只推荐”policykit-1”，但blueman不支持“运行时可选”的Polkit-1支持。您必须在构建期间决定，因为”libpolkit-agent-1-dev”不是构建依赖项，所以Polkit-1支持总是被禁用的。顺便说一句，开发人员十分负责，他立即挑出了这个bug，并立即推出了一个补丁，同时还协调了Ubuntu和Debian安全团队之间的发布日期。</p>
 <p>DhcpClient()方法很快引起了我的注意，它需要一个字符串作为参数。让我们看看strace在后台发送了哪些系统调用。我使用这个oneliner启动守护进程，并将一个strace进程附加到它上面，而不用太担心它的活动时间或PID很短。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dbus-send --system \</span><br><span class="line">  --dest=org.blueman.Mechanism \</span><br><span class="line">  /org/blueman/mechanism \</span><br><span class="line">  org.freedesktop.DBus.Introspectable.Introspect &amp;&amp; \</span><br><span class="line">  strace -f -s <span class="number">65535</span> -e execve -p \</span><br><span class="line">  $(pgrep -f blueman-mechanism) </span><br></pre></td></tr></table></figure>
@@ -314,7 +314,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dbus-send --<span class="built_in">print</span>-reply --system \</span><br><span class="line">  --dest=org.blueman.Mechanism \</span><br><span class="line">  /org/blueman/mechanism \</span><br><span class="line">  org.blueman.Mechanism.DhcpClient \</span><br><span class="line">  string:<span class="string">&quot;-c/tmp/eye&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>任何没有特权的用户都可以运行这个，并且任何放在”shellscript/tmp/eye”中的代码都以root用户身份运行！</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>bug无处不在，像hackerone和bugcrowd这样的项目为公司提供了绝佳的机会，通过向安全研究人员提供大量资金来得到项目的漏洞从而加强公司的安全性是一个很有效的办法。但是开源社区也需要我们的帮助。所以，偶尔也为了好玩而不是为了盈利去尝试一下吧。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>bug无处不在，像hackerone和bugcrowd这样的项目为公司提供了绝佳的机会，通过向安全研究人员提供大量资金来得到项目的漏洞从而加强公司的安全性是一个很有效的办法。但是开源社区也需要我们的帮助。所以，偶尔也为了好玩而不是为了盈利去尝试一下吧。</p>
 <p>感谢Ubuntu安全团队和Blueman的开发者Christopher Schramm，感谢他们快速而友好的回应及为解决这些问题而努力进行的工作。</p>
 
       
@@ -339,7 +339,7 @@
     2020-11-16
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-04-05
+    2021-04-14
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://foxcookie.github.io/2020/11/16/Ubuntu-Desktop-D-Bus协议漏洞分析/" title="Ubuntu Desktop D-Bus协议漏洞分析" target="_blank">Ubuntu Desktop D-Bus协议漏洞分析</a>
@@ -515,7 +515,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%95%E8%BF%87"><span class="toc-number">2.</span> <span class="toc-text">绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aptdaemon%E4%BF%A1%E6%81%AF%E5%85%AC%E5%BC%80-CVE-2020-15703"><span class="toc-number">3.</span> <span class="toc-text">Aptdaemon信息公开(CVE-2020-15703)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PackageKit%E4%BF%A1%E6%81%AF%E5%85%AC%E5%BC%80-CVE-2020-16121"><span class="toc-number">4.</span> <span class="toc-text">PackageKit信息公开(CVE-2020-16121)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blueman%E6%9C%AC%E5%9C%B0%E7%89%B9%E6%9D%83%E5%8D%87%E7%BA%A7%E6%88%96%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1-CVE-2020-15238"><span class="toc-number">5.</span> <span class="toc-text">Blueman本地特权升级或拒绝服务(CVE-2020-15238)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">6.</span> <span class="toc-text">结论</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%95%E8%BF%87"><span class="toc-number">2.</span> <span class="toc-text">绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Aptdaemon%E4%BF%A1%E6%81%AF%E5%85%AC%E5%BC%80-CVE-2020-15703"><span class="toc-number">3.</span> <span class="toc-text">Aptdaemon信息公开(CVE-2020-15703)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PackageKit%E4%BF%A1%E6%81%AF%E5%85%AC%E5%BC%80-CVE-2020-16121"><span class="toc-number">4.</span> <span class="toc-text">PackageKit信息公开(CVE-2020-16121)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blueman%E6%9C%AC%E5%9C%B0%E7%89%B9%E6%9D%83%E5%8D%87%E7%BA%A7%E6%88%96%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1-CVE-2020-15238"><span class="toc-number">5.</span> <span class="toc-text">Blueman本地特权升级或拒绝服务(CVE-2020-15238)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">6.</span> <span class="toc-text">结论</span></a></li></ol>
                     </div>
                 </span>
             </div>

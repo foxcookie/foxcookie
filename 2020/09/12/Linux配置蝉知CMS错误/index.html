@@ -17,28 +17,28 @@
 <meta property="og:site_name" content="凉生霜气清，月上灯火明">
 <meta property="og:description" content="简介： 本篇文章只写了在LAMP环境中如何配置蝉知CMS系统，前置需要的环境如DNS等请自行配置，本文仅供参考，如有错误欢迎提出。 注：本文只附录配置命令，不明白的请自行百度（当然，也可联系博主，乐意效劳）">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanbTg.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wan7m8.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanoOf.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanI6P.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanLkQ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanOYj.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/waKwKx.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanxlq.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanvpn.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wanz60.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wauSXV.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wau9mT.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wauC0U.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/waMLkD.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wauP7F.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/09/12/wauFk4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111440.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111446.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111450.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111455.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111459.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111503.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111507.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111511.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111518.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111523.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111526.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111529.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111533.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111537.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111541.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111546.png">
 <meta property="article:published_time" content="2020-09-12T04:52:22.000Z">
-<meta property="article:modified_time" content="2020-11-21T09:46:45.961Z">
+<meta property="article:modified_time" content="2021-04-14T03:16:42.488Z">
 <meta property="article:author" content="foxcookie">
 <meta property="article:tag" content="CMS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/12/wanbTg.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111440.png">
   
     <link rel="alternative" href="/atom.xml" title="凉生霜气清，月上灯火明" type="application/atom+xml">
   
@@ -222,42 +222,42 @@
 <p>当然，还有我们的部署域名服务器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;var&#x2F;named&#x2F;named.fox.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/wanbTg.png" alt="wanbTg.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111440.png" alt="1"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">测试：nslookup</span><br><span class="line">重启服务：systemctl restart named</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/wan7m8.png" alt="wan7m8.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111446.png" alt="2"></p>
 <h5 id="（一）、访问蝉知页面"><a href="#（一）、访问蝉知页面" class="headerlink" title="（一）、访问蝉知页面"></a>（一）、访问蝉知页面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">访问网站：http:&#x2F;&#x2F;192.168.7.129&#x2F;php&#x2F;chanzhi&#x2F;www&#x2F;install.php</span><br><span class="line">注：根据需要，自行设置路径</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/wanoOf.png" alt="wanoOf.png"></p>
-<p><img src="https://s1.ax1x.com/2020/09/12/wanI6P.png" alt="wanI6P.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111450.png" alt="3"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111455.png" alt="4"></p>
 <h5 id="（二）、配置前置权限"><a href="#（二）、配置前置权限" class="headerlink" title="（二）、配置前置权限"></a>（二）、配置前置权限</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">配置SELinux：</span><br><span class="line">semanage fcontext -a -t httpd_sys_content_t &quot;&#x2F;testwebsite(&#x2F;.*)?&quot;</span><br><span class="line">setsebool -P httpd_anon_write on</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/wanLkQ.png" alt="wanLkQ.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111459.png" alt="5"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">配置apache权限：</span><br><span class="line">chown -R apache:apache &#x2F;var&#x2F;www&#x2F;php&#x2F;chanzhi&#x2F;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/wanOYj.png" alt="wanOYj.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111503.png" alt="6"></p>
 <h4 id="三、报错与解决"><a href="#三、报错与解决" class="headerlink" title="三、报错与解决"></a>三、报错与解决</h4><h5 id="报错一：目录不可写"><a href="#报错一：目录不可写" class="headerlink" title="报错一：目录不可写"></a>报错一：目录不可写</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">临时文件目录不可写</span><br><span class="line">cd &#x2F;var&#x2F;www&#x2F;php&#x2F;chanzhi</span><br><span class="line">标记文件类型：chcon -t httpd_sys_content_rw_t system -R</span><br><span class="line">调整布尔值：setsebool -P httpd_anon_write on</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/waKwKx.png" alt="waKwKx.png"></p>
-<p><img src="https://s1.ax1x.com/2020/09/12/wanxlq.png" alt="wanxlq.png"></p>
-<p><img src="https://s1.ax1x.com/2020/09/12/wanvpn.png" alt="wanvpn.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111507.png" alt="7"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111511.png" alt="8"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111518.png" alt="9"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">上传文件目录不可写</span><br><span class="line">解决命令：</span><br><span class="line">cd &#x2F;var&#x2F;www&#x2F;php&#x2F;chanzhi&#x2F;www</span><br><span class="line">chcon -t httpd_sys_content_rw_t data -R</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/wanz60.png" alt="wanz60.png"></p>
-<h5 id="报错二、数据库连接失败（错误代码2003）"><a href="#报错二、数据库连接失败（错误代码2003）" class="headerlink" title="报错二、数据库连接失败（错误代码2003）"></a>报错二、数据库连接失败（错误代码2003）</h5><p><img src="https://s1.ax1x.com/2020/09/12/wauSXV.png" alt="wauSXV.png"></p>
-<p><img src="https://s1.ax1x.com/2020/09/12/wau9mT.png" alt="wau9mT.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111523.png" alt="10"></p>
+<h5 id="报错二、数据库连接失败（错误代码2003）"><a href="#报错二、数据库连接失败（错误代码2003）" class="headerlink" title="报错二、数据库连接失败（错误代码2003）"></a>报错二、数据库连接失败（错误代码2003）</h5><p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111526.png" alt="11"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111529.png" alt="12"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原因：SELinux限制了对外访问</span><br><span class="line">解决方法：</span><br><span class="line">setsebool -P httpd_can_network_connect on</span><br><span class="line">setsebool -P httpd_can_network_connect_db on</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://s1.ax1x.com/2020/09/12/wauC0U.png" alt="wauC0U.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111533.png" alt="13"></p>
 <h5 id="报错三、数据库连接失败（错误代码1130）"><a href="#报错三、数据库连接失败（错误代码1130）" class="headerlink" title="报错三、数据库连接失败（错误代码1130）"></a>报错三、数据库连接失败（错误代码1130）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_35396905&#x2F;java&#x2F;article&#x2F;details&#x2F;82972618</span><br></pre></td></tr></table></figure>
 
 <p>（这个图片比较糊，因为我没有这个错误，将就着看吧）</p>
-<p><img src="https://s1.ax1x.com/2020/09/12/waMLkD.png" alt="waMLkD.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111537.png" alt="14"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">原因：账号不允许远程登陆</span><br><span class="line">解决方法：</span><br><span class="line">1、开启3306端口</span><br><span class="line">查询端口号是否开放</span><br><span class="line">firewall-cmd --query-port&#x3D;3306&#x2F;tcp</span><br><span class="line">永久开启3306端口</span><br><span class="line">firewall-cmd --permanent --zone&#x3D;public --add-port&#x3D;3306&#x2F;tcp</span><br><span class="line">重启firewalld服务</span><br><span class="line">systemctl restart firewalld</span><br><span class="line"></span><br><span class="line">2、修改数据库</span><br><span class="line">mysql -u root -p</span><br><span class="line">mysql&gt;use mysql;</span><br><span class="line">mysql&gt;update user set host &#x3D; &#39;%&#39; where user &#x3D; &#39;root&#39; and host&#x3D;&#39;localhost&#39;;</span><br><span class="line">mysql&gt;select host, user from user;</span><br><span class="line"></span><br><span class="line">3、重启mariadb数据库服务</span><br><span class="line">systemctl restart mariadb</span><br></pre></td></tr></table></figure>
 
 <h4 id="四、成功"><a href="#四、成功" class="headerlink" title="四、成功"></a>四、成功</h4><p>注：记得选中“导入demo数据”</p>
-<p><img src="https://s1.ax1x.com/2020/09/12/wauP7F.png" alt="wauP7F.png"></p>
-<p><img src="https://s1.ax1x.com/2020/09/12/wauFk4.png" alt="wauFk4.png"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111541.png" alt="15"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414111546.png" alt="16"></p>
 
       
 
@@ -281,7 +281,7 @@
     2020-09-12
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-11-21
+    2021-04-14
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://foxcookie.github.io/2020/09/12/Linux配置蝉知CMS错误/" title="关于如何在开启SELinux的情况下安装蝉知CMS" target="_blank">关于如何在开启SELinux的情况下安装蝉知CMS</a>
@@ -415,7 +415,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/20/ciscn2020_%E5%8D%8E%E4%B8%AD%E5%88%86%E5%8C%BA%E8%B5%9B/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/20/ciscn2020-%E5%8D%8E%E4%B8%AD%E5%88%86%E5%8C%BA%E8%B5%9B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
