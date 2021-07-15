@@ -10,13 +10,12 @@
   <link rel="dns-prefetch" href="https://foxcookie.github.io">
   <title>常见漏洞原理 | 凉生霜气清，月上灯火明</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、缓冲区溢出漏洞 0x01、get函数溢出漏洞 ​    gets()函数不检查缓冲长度，调用gets(buﬀer)，会把用户输入的内容放在buﬀer中，但是对内容没有检查长度，如果用户输入的内容过长，就会覆盖在buﬀer之后定义的变量，这也使一些用户可以随便更改 一些程序中的变量。​    可以使用fgets()函数，首先要用malloc为buﬀer分配一部分固定的空间。然后调用fgets()">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="常见漏洞原理">
 <meta property="og:url" content="https://foxcookie.github.io/2021/07/15/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="凉生霜气清，月上灯火明">
-<meta property="og:description" content="一、缓冲区溢出漏洞 0x01、get函数溢出漏洞 ​    gets()函数不检查缓冲长度，调用gets(buﬀer)，会把用户输入的内容放在buﬀer中，但是对内容没有检查长度，如果用户输入的内容过长，就会覆盖在buﬀer之后定义的变量，这也使一些用户可以随便更改 一些程序中的变量。​    可以使用fgets()函数，首先要用malloc为buﬀer分配一部分固定的空间。然后调用fgets()">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715132730.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715131914.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715131935.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715131939.png">
@@ -28,11 +27,12 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715132006.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715132011.png">
 <meta property="article:published_time" content="2021-07-15T05:22:41.000Z">
-<meta property="article:modified_time" content="2021-07-15T05:24:36.937Z">
+<meta property="article:modified_time" content="2021-07-15T05:32:17.986Z">
 <meta property="article:author" content="foxcookie">
 <meta property="article:tag" content="漏洞">
+<meta property="article:tag" content="知识梳理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715131914.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715132730.jpg">
   
     <link rel="alternative" href="/atom.xml" title="凉生霜气清，月上灯火明" type="application/atom+xml">
   
@@ -203,7 +203,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、缓冲区溢出漏洞"><a href="#一、缓冲区溢出漏洞" class="headerlink" title="一、缓冲区溢出漏洞"></a>一、缓冲区溢出漏洞</h3><hr>
+        <img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715132730.jpg" alt="夏目" style="zoom: 15%;" />
+
+<a id="more"></a>
+
+<h3 id="一、缓冲区溢出漏洞"><a href="#一、缓冲区溢出漏洞" class="headerlink" title="一、缓冲区溢出漏洞"></a>一、缓冲区溢出漏洞</h3><hr>
 <h4 id="0x01、get函数溢出漏洞"><a href="#0x01、get函数溢出漏洞" class="headerlink" title="0x01、get函数溢出漏洞"></a>0x01、get函数溢出漏洞</h4><hr>
 <p>​    gets()函数不检查缓冲长度，调用gets(buﬀer)，会把用户输入的内容放在buﬀer中，但是对内容没有检查长度，如果用户输入的内容过长，就会覆盖在buﬀer之后定义的变量，这也使一些用户可以随便更改 一些程序中的变量。<br>​    可以使用fgets()函数，首先要用malloc为buﬀer分配一部分固定的空间。然后调用fgets()的时候传递进 去预计长度的值，这就不会造成溢出了。</p>
 <hr>
@@ -363,6 +367,7 @@
 <p>漏洞代码实例：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">forest</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> tnum;</span><br><span class="line">	tree *t;</span><br><span class="line">	<span class="comment">//tree是个结构体</span></span><br><span class="line">&#125;forest;</span><br><span class="line">forest*f=<span class="keyword">new</span> forest[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">	(f+i)-&gt;tnum=i;</span><br><span class="line">	(f+i)-&gt;=<span class="keyword">new</span> tree[(j+i)-&gt;tnum];</span><br><span class="line">	<span class="keyword">delete</span> f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在没有释放forest结构体内的指针时就先释放f，这样为t分配的空间将被泄露。对于多级连续内存空间的 分配是先申请大范围空间，再申请小范围空间，释放空间则相反应显示放小范围的空间在释放大范围空间，否 则就会出现内存泄漏。</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="五、参考链接"><a href="#五、参考链接" class="headerlink" title="五、参考链接"></a>五、参考链接</h3><p><a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-252569.htm">https://bbs.pediy.com/thread-252569.htm</a></p>
 
       
 
@@ -451,6 +456,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">漏洞</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">知识梳理</a>
         		</li>
       		
 		</ul>
@@ -549,7 +558,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.</span> <span class="toc-text">一、缓冲区溢出漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01%E3%80%81get%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.1.</span> <span class="toc-text">0x01、get函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x02%E3%80%81strcpy%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.2.</span> <span class="toc-text">0x02、strcpy函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x03%E3%80%81sprintf%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.3.</span> <span class="toc-text">0x03、sprintf函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x04%E3%80%81printf%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.4.</span> <span class="toc-text">0x04、printf函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x05%E3%80%81scanf%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.5.</span> <span class="toc-text">0x05、scanf函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x06%E3%80%81%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.6.</span> <span class="toc-text">0x06、栈溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x07%E3%80%81%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.7.</span> <span class="toc-text">0x07、整数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x08%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.8.</span> <span class="toc-text">0x08、格式化字符串漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x09%E3%80%81Double-Free%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.9.</span> <span class="toc-text">0x09、Double Free漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x10%E3%80%81UAF%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.10.</span> <span class="toc-text">0x10、UAF漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x11%E3%80%81%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.11.</span> <span class="toc-text">0x11、数组越界访问漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x12%E3%80%81%E7%B1%BB%E5%9E%8B%E6%B7%B7%E6%B7%86%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.12.</span> <span class="toc-text">0x12、类型混淆漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x13%E3%80%81%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.13.</span> <span class="toc-text">0x13、竞争条件漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8C%87%E9%92%88%E8%A6%86%E5%86%99"><span class="toc-number">2.</span> <span class="toc-text">二、指针覆写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01%E3%80%81%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="toc-number">2.1.</span> <span class="toc-text">0x01、命令注入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AD%98%E5%82%A8%E8%B6%8A%E7%95%8C"><span class="toc-number">3.</span> <span class="toc-text">三、存储越界</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01%E3%80%81%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E8%BE%B9%E7%95%8C%E6%A3%80%E6%9F%A5"><span class="toc-number">3.1.</span> <span class="toc-text">0x01、数组元素边界检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x02%E3%80%81%E6%8C%87%E9%92%88%E5%85%83%E7%B4%A0%E8%BE%B9%E7%95%8C%E6%A3%80%E6%9F%A5"><span class="toc-number">3.2.</span> <span class="toc-text">0x02、指针元素边界检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x03%E3%80%81%E6%95%B0%E5%80%BC%E5%8F%98%E9%87%8F%E8%8C%83%E5%9B%B4%E8%B6%8A%E7%95%8C"><span class="toc-number">3.3.</span> <span class="toc-text">0x03、数值变量范围越界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x04%E3%80%81%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8%E5%88%86%E5%B8%83"><span class="toc-number">3.4.</span> <span class="toc-text">0x04、动态存储分布</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">四、内存泄漏</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.</span> <span class="toc-text">一、缓冲区溢出漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01%E3%80%81get%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.1.</span> <span class="toc-text">0x01、get函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x02%E3%80%81strcpy%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.2.</span> <span class="toc-text">0x02、strcpy函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x03%E3%80%81sprintf%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.3.</span> <span class="toc-text">0x03、sprintf函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x04%E3%80%81printf%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.4.</span> <span class="toc-text">0x04、printf函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x05%E3%80%81scanf%E5%87%BD%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.5.</span> <span class="toc-text">0x05、scanf函数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x06%E3%80%81%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.6.</span> <span class="toc-text">0x06、栈溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x07%E3%80%81%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.7.</span> <span class="toc-text">0x07、整数溢出漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x08%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.8.</span> <span class="toc-text">0x08、格式化字符串漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x09%E3%80%81Double-Free%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.9.</span> <span class="toc-text">0x09、Double Free漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x10%E3%80%81UAF%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.10.</span> <span class="toc-text">0x10、UAF漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x11%E3%80%81%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.11.</span> <span class="toc-text">0x11、数组越界访问漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x12%E3%80%81%E7%B1%BB%E5%9E%8B%E6%B7%B7%E6%B7%86%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.12.</span> <span class="toc-text">0x12、类型混淆漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x13%E3%80%81%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.13.</span> <span class="toc-text">0x13、竞争条件漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8C%87%E9%92%88%E8%A6%86%E5%86%99"><span class="toc-number">2.</span> <span class="toc-text">二、指针覆写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01%E3%80%81%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="toc-number">2.1.</span> <span class="toc-text">0x01、命令注入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AD%98%E5%82%A8%E8%B6%8A%E7%95%8C"><span class="toc-number">3.</span> <span class="toc-text">三、存储越界</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0x01%E3%80%81%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E8%BE%B9%E7%95%8C%E6%A3%80%E6%9F%A5"><span class="toc-number">3.1.</span> <span class="toc-text">0x01、数组元素边界检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x02%E3%80%81%E6%8C%87%E9%92%88%E5%85%83%E7%B4%A0%E8%BE%B9%E7%95%8C%E6%A3%80%E6%9F%A5"><span class="toc-number">3.2.</span> <span class="toc-text">0x02、指针元素边界检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x03%E3%80%81%E6%95%B0%E5%80%BC%E5%8F%98%E9%87%8F%E8%8C%83%E5%9B%B4%E8%B6%8A%E7%95%8C"><span class="toc-number">3.3.</span> <span class="toc-text">0x03、数值变量范围越界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#0x04%E3%80%81%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8%E5%88%86%E5%B8%83"><span class="toc-number">3.4.</span> <span class="toc-text">0x04、动态存储分布</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">四、内存泄漏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">五、参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -741,6 +750,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CVE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">知识梳理</a>
               </li>
             
             <div class="clearfix"></div>
