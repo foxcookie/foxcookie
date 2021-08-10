@@ -95,7 +95,7 @@
 		</nav>
 
 		<nav style="margin-top: 80px; font-size: 13px; color: #4d4d4d;">
-			<p>总文章数 18</p>
+			<p>总文章数 19</p>
 		</nav>
 		
 	</header>		
@@ -168,6 +168,121 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-drozer简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">drozer简单使用</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-08-10T09:07:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于无法像网上的教程那样进行常规启动，在查了许多资料后终于找到了一个启动方法。</p>
+<h4 id="1、配置客户端"><a href="#1、配置客户端" class="headerlink" title="1、配置客户端"></a>1、配置客户端</h4><p>在手机端的drozer软件上进行配置</p>
+<p>Settings –&gt;  New Endpoint  –&gt;  配置host为本机IP</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142138.png" alt="image-20210730135418044"></p>
+<h4 id="2、启动服务器"><a href="#2、启动服务器" class="headerlink" title="2、启动服务器"></a>2、启动服务器</h4><p>注意，drozer只能运行在python2环境下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\python\python2.7\Scripts&gt;			&#x2F;&#x2F;drozer安装目录</span><br><span class="line">drozer server start			&#x2F;&#x2F;客户端启动服务</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142144.png" alt="image-20210730135001527"></p>
+<h4 id="3、连接模拟器"><a href="#3、连接模拟器" class="headerlink" title="3、连接模拟器"></a>3、连接模拟器</h4><p>另开一个终端（启动服务的终端别关，挂着就好）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drozer console connect --server 配置的IP地址</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142148.png" alt="image-20210730135459879"></p>
+<h4 id="4、模块使用"><a href="#4、模块使用" class="headerlink" title="4、模块使用"></a>4、模块使用</h4><h5 id="1、CN"><a href="#1、CN" class="headerlink" title="1、CN"></a>1、CN</h5><p>机翻，凑合着看吧。英文好的建议阅读英文文档，更准确。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">app.activity.forintent                查找能够处理给定意图的活动</span><br><span class="line">app.activity.info                     获取有关导出活动的信息</span><br><span class="line">app.activity.start                    开始一个活动</span><br><span class="line">app.broadcast.info                    获取有关广播接收器的信息</span><br><span class="line">app.broadcast.send                    使用意图发送广播</span><br><span class="line">app.broadcast.sniff                   注册一个可以嗅探特定意图的广播接收器</span><br><span class="line">app.package.attacksurface             得到包的攻击面</span><br><span class="line">app.package.backup                    列出使用备份API的包(允许备份)</span><br><span class="line">app.package.debuggable                找到debuggable包</span><br><span class="line">app.package.info                      获取关于已安装包的信息</span><br><span class="line">app.package.launchintent              获取包的启动意图</span><br><span class="line">app.package.list                      包列表</span><br><span class="line">app.package.manifest                  获取包的AndroidManifest.xml</span><br><span class="line">app.package.native                    查找嵌入在应用程序中的本机库</span><br><span class="line">app.package.shareduid                 寻找具有共享uid的包</span><br><span class="line">app.provider.columns                  列出内容提供程序中的列</span><br><span class="line">app.provider.delete                   从内容提供程序中删除</span><br><span class="line">app.provider.download                 从支持文件的内容提供程序下载文件</span><br><span class="line">app.provider.finduri                  在包中查找引用的内容uri</span><br><span class="line">app.provider.info                     获取关于导出内容提供程序的信息</span><br><span class="line">app.provider.insert                   Insert into a Content Provider</span><br><span class="line">app.provider.query                    插入到内容提供程序</span><br><span class="line">app.provider.read                     从支持文件的内容提供程序读取</span><br><span class="line">app.provider.update                   更新内容提供程序中的记录</span><br><span class="line">app.service.info                      获取导出的服务信息</span><br><span class="line">app.service.send                      向服务发送消息,并显示应答</span><br><span class="line">app.service.start                     开始服务</span><br><span class="line">app.service.stop                      停止服务</span><br><span class="line">auxiliary.webcontentresolver          为内容提供者启动web服务接口</span><br><span class="line">exploit.jdwp.check                    打开@jdwp-control并查看哪些应用程序连接</span><br><span class="line">exploit.pilfer.general.apnprovider    读取APN内容提供商</span><br><span class="line">exploit.pilfer.general.settingsprovider</span><br><span class="line">                                      读取设置内容提供程序</span><br><span class="line">information.datetime                  打印日期&#x2F;时间</span><br><span class="line">information.deviceinfo                获取详细的设备信息</span><br><span class="line">information.permissions               获取设备上包使用的所有权限列表</span><br><span class="line">scanner.activity.browsable            获取所有可从web浏览器调用的BROWSABLE活动</span><br><span class="line">scanner.misc.native                   查找包中包含的本机组件</span><br><span class="line">scanner.misc.readablefiles            在指定的文件夹中找到全局可读的文件</span><br><span class="line">scanner.misc.secretcodes              搜索可以从拨号器使用的密码</span><br><span class="line">scanner.misc.sflagbinaries            在给定的文件夹中找到suid&#x2F;sgid二进制文件(默认是&#x2F;system)</span><br><span class="line">scanner.misc.writablefiles            在指定的文件夹中找到全局可写的文件</span><br><span class="line">scanner.provider.finduris             搜索可以从我们的上下文查询的内容提供者</span><br><span class="line">scanner.provider.injection            测试SQL注入漏洞的内容提供程序</span><br><span class="line">scanner.provider.sqltables            查找可通过SQL注入漏洞访问的表</span><br><span class="line">scanner.provider.traversal            测试基本目录遍历漏洞的内容提供程序</span><br><span class="line">shell.exec                            执行单个Linux命令</span><br><span class="line">shell.send                            向远程侦听器发送ASH shell</span><br><span class="line">shell.start                           进入交互式Linux shell</span><br><span class="line">tools.file.download                   下载一份文件</span><br><span class="line">tools.file.md5sum                     获取md5文件校验和</span><br><span class="line">tools.file.size                       获取文件大小</span><br><span class="line">tools.file.upload                     上传一个文件</span><br><span class="line">tools.setup.busybox                   安装Busybox</span><br><span class="line">tools.setup.minimalsu                 在设备上准备&#39;minimal-su&#39;二进制安装</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、EN"><a href="#2、EN" class="headerlink" title="2、EN"></a>2、EN</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">app.activity.forintent                Find activities that can handle the given intent</span><br><span class="line">app.activity.info                     Gets information about exported activities.</span><br><span class="line">app.activity.start                    Start an Activity</span><br><span class="line">app.broadcast.info                    Get information about broadcast receivers</span><br><span class="line">app.broadcast.send                    Send broadcast using an intent</span><br><span class="line">app.broadcast.sniff                   Register a broadcast receiver that can sniff particular intents</span><br><span class="line">app.package.attacksurface             Get attack surface of package</span><br><span class="line">app.package.backup                    Lists packages that use the backup API (returns true on</span><br><span class="line">                                      FLAG_ALLOW_BACKUP)</span><br><span class="line">app.package.debuggable                Find debuggable packages</span><br><span class="line">app.package.info                      Get information about installed packages</span><br><span class="line">app.package.launchintent              Get launch intent of package</span><br><span class="line">app.package.list                      List Packages</span><br><span class="line">app.package.manifest                  Get AndroidManifest.xml of package</span><br><span class="line">app.package.native                    Find Native libraries embedded in the application.</span><br><span class="line">app.package.shareduid                 Look for packages with shared UIDs</span><br><span class="line">app.provider.columns                  List columns in content provider</span><br><span class="line">app.provider.delete                   Delete from a content provider</span><br><span class="line">app.provider.download                 Download a file from a content provider that supports files</span><br><span class="line">app.provider.finduri                  Find referenced content URIs in a package</span><br><span class="line">app.provider.info                     Get information about exported content providers</span><br><span class="line">app.provider.insert                   Insert into a Content Provider</span><br><span class="line">app.provider.query                    Query a content provider</span><br><span class="line">app.provider.read                     Read from a content provider that supports files</span><br><span class="line">app.provider.update                   Update a record in a content provider</span><br><span class="line">app.service.info                      Get information about exported services</span><br><span class="line">app.service.send                      Send a Message to a service, and display the reply</span><br><span class="line">app.service.start                     Start Service</span><br><span class="line">app.service.stop                      Stop Service</span><br><span class="line">auxiliary.webcontentresolver          Start a web service interface to content providers.</span><br><span class="line">exploit.jdwp.check                    Open @jdwp-control and see which apps connect</span><br><span class="line">exploit.pilfer.general.apnprovider    Reads APN content provider</span><br><span class="line">exploit.pilfer.general.settingsprovider</span><br><span class="line">                                      Reads Settings content provider</span><br><span class="line">information.datetime                  Print Date&#x2F;Time</span><br><span class="line">information.deviceinfo                Get verbose device information</span><br><span class="line">information.permissions               Get a list of all permissions used by packages on the device</span><br><span class="line">scanner.activity.browsable            Get all BROWSABLE activities that can be invoked from the web browser</span><br><span class="line">scanner.misc.native                   Find native components included in packages</span><br><span class="line">scanner.misc.readablefiles            Find world-readable files in the given folder</span><br><span class="line">scanner.misc.secretcodes              Search for secret codes that can be used from the dialer</span><br><span class="line">scanner.misc.sflagbinaries            Find suid&#x2F;sgid binaries in the given folder (default is &#x2F;system).</span><br><span class="line">scanner.misc.writablefiles            Find world-writable files in the given folder</span><br><span class="line">scanner.provider.finduris             Search for content providers that can be queried from our context.</span><br><span class="line">scanner.provider.injection            Test content providers for SQL injection vulnerabilities.</span><br><span class="line">scanner.provider.sqltables            Find tables accessible through SQL injection vulnerabilities.</span><br><span class="line">scanner.provider.traversal            Test content providers for basic directory traversal vulnerabilities.</span><br><span class="line">shell.exec                            Execute a single Linux command.</span><br><span class="line">shell.send                            Send an ASH shell to a remote listener.</span><br><span class="line">shell.start                           Enter into an interactive Linux shell.</span><br><span class="line">tools.file.download                   Download a File</span><br><span class="line">tools.file.md5sum                     Get md5 Checksum of file</span><br><span class="line">tools.file.size                       Get size of file</span><br><span class="line">tools.file.upload                     Upload a File</span><br><span class="line">tools.setup.busybox                   Install Busybox.</span><br><span class="line">tools.setup.minimalsu                 Prepare &#39;minimal-su&#39; binary installation on the device.</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、中文乱码"><a href="#5、中文乱码" class="headerlink" title="5、中文乱码"></a>5、中文乱码</h4><p>修改package.py文件内容，重启drozer即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2.7\Lib\site-packages\drozer\modules\app</span><br></pre></td></tr></table></figure>
+
+<p><img src="image/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20210809110443753.png" alt="image-20210809110443753"></p>
+<p><img src="image/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20210809110609582.png" alt="image-20210809110609582"></p>
+
+      
+
+
+
+<!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+
+
+<!-- 添加版权声明》 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">drozer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-win10关闭端口占用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1085,107 +1200,6 @@
 
 
   
-    <article id="post-Kioptrix-4靶机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/16/Kioptrix-4%E9%9D%B6%E6%9C%BA/">Kioptrix 4靶机</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/16/Kioptrix-4%E9%9D%B6%E6%9C%BA/" class="archive-article-date">
-  	<time datetime="2020-11-16T11:50:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>简介：</strong>emmmmm，为了实验满分，记录一次web靶机的渗透流程，非常感谢<a target="_blank" rel="noopener" href="https://www.cnblogs.com/JKding233/">JKding233</a>大佬的技术支持，给大佬跪了！！！</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414110646.png" alt="a"></p>
-        
-          <a class="article-more-a" href="/2020/11/16/Kioptrix-4%E9%9D%B6%E6%9C%BA/#more">more >></a>
-        
-      
-
-
-
-<!-- 《添加版权声明 -->
-
-    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-
-
-<!-- 添加版权声明》 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">靶机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/16/Kioptrix-4%E9%9D%B6%E6%9C%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
@@ -1379,6 +1393,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">回忆录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">drozer</a>
               </li>
             
             <div class="clearfix"></div>

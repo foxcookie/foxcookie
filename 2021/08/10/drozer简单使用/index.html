@@ -8,57 +8,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://foxcookie.github.io">
-  <title>病毒分析之伪装eset升级程序 | 凉生霜气清，月上灯火明</title>
+  <title>drozer简单使用 | 凉生霜气清，月上灯火明</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言文章首发于云众可信：https:&#x2F;&#x2F;www.sec-in.com&#x2F;article&#x2F;960 最近闲来无事，找到了一个大佬分析的病毒复现学习下。 样本hash：ae986dd436082fb9a7fec397c8b6e717 app.any.run地址：https:&#x2F;&#x2F;app.any.run&#x2F;tasks&#x2F;c5066e3d-974b-499a-971f-954dbf2d5c5d&#x2F; 样本提取密码：in">
+  <meta name="description" content="由于无法像网上的教程那样进行常规启动，在查了许多资料后终于找到了一个启动方法。 1、配置客户端在手机端的drozer软件上进行配置 Settings –&gt;  New Endpoint  –&gt;  配置host为本机IP  2、启动服务器注意，drozer只能运行在python2环境下 12E:\python\python2.7\Scripts&gt;			&#x2F;&#x2F;droz">
 <meta property="og:type" content="article">
-<meta property="og:title" content="病毒分析之伪装eset升级程序">
-<meta property="og:url" content="https://foxcookie.github.io/2021/03/10/%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90%E4%B9%8B%E4%BC%AA%E8%A3%85eset%E5%8D%87%E7%BA%A7%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:title" content="drozer简单使用">
+<meta property="og:url" content="https://foxcookie.github.io/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="凉生霜气清，月上灯火明">
-<meta property="og:description" content="前言文章首发于云众可信：https:&#x2F;&#x2F;www.sec-in.com&#x2F;article&#x2F;960 最近闲来无事，找到了一个大佬分析的病毒复现学习下。 样本hash：ae986dd436082fb9a7fec397c8b6e717 app.any.run地址：https:&#x2F;&#x2F;app.any.run&#x2F;tasks&#x2F;c5066e3d-974b-499a-971f-954dbf2d5c5d&#x2F; 样本提取密码：in">
+<meta property="og:description" content="由于无法像网上的教程那样进行常规启动，在查了许多资料后终于找到了一个启动方法。 1、配置客户端在手机端的drozer软件上进行配置 Settings –&gt;  New Endpoint  –&gt;  配置host为本机IP  2、启动服务器注意，drozer只能运行在python2环境下 12E:\python\python2.7\Scripts&gt;			&#x2F;&#x2F;droz">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112318.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112329.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112336.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112345.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112354.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112407.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112422.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112430.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112439.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112448.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112500.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112508.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112517.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112525.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112534.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112542.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112550.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112601.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112610.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112622.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112630.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112638.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112649.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112702.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112735.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112743.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112751.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112800.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112809.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112821.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112830.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112839.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112847.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112855.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112903.png">
-<meta property="article:published_time" content="2021-03-10T08:16:57.000Z">
-<meta property="article:modified_time" content="2021-05-30T09:29:35.883Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142138.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142144.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142148.png">
+<meta property="og:image" content="https://foxcookie.github.io/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20210809110443753.png">
+<meta property="og:image" content="https://foxcookie.github.io/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20210809110609582.png">
+<meta property="article:published_time" content="2021-08-10T09:07:05.000Z">
+<meta property="article:modified_time" content="2021-08-10T09:07:37.611Z">
 <meta property="article:author" content="foxcookie">
-<meta property="article:tag" content="病毒">
-<meta property="article:tag" content="样本分析">
+<meta property="article:tag" content="drozer">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112318.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142138.png">
   
     <link rel="alternative" href="/atom.xml" title="凉生霜气清，月上灯火明" type="application/atom+xml">
   
@@ -209,133 +178,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-病毒分析之伪装eset升级程序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-drozer简单使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      病毒分析之伪装eset升级程序
+      drozer简单使用
     </h1>
   
 
         
-        <a href="/2021/03/10/%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90%E4%B9%8B%E4%BC%AA%E8%A3%85eset%E5%8D%87%E7%BA%A7%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2021-03-10T08:16:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
+        <a href="/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-08-10T09:07:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>文章首发于<strong>云众可信：</strong><a target="_blank" rel="noopener" href="https://www.sec-in.com/article/960">https://www.sec-in.com/article/960</a></p>
-<p>最近闲来无事，找到了一个大佬分析的病毒复现学习下。</p>
-<p>样本hash：ae986dd436082fb9a7fec397c8b6e717</p>
-<p>app.any.run地址：<a target="_blank" rel="noopener" href="https://app.any.run/tasks/c5066e3d-974b-499a-971f-954dbf2d5c5d/">https://app.any.run/tasks/c5066e3d-974b-499a-971f-954dbf2d5c5d/</a></p>
-<p>样本提取密码：infected</p>
-<a id="more"></a>
+        <p>由于无法像网上的教程那样进行常规启动，在查了许多资料后终于找到了一个启动方法。</p>
+<h4 id="1、配置客户端"><a href="#1、配置客户端" class="headerlink" title="1、配置客户端"></a>1、配置客户端</h4><p>在手机端的drozer软件上进行配置</p>
+<p>Settings –&gt;  New Endpoint  –&gt;  配置host为本机IP</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142138.png" alt="image-20210730135418044"></p>
+<h4 id="2、启动服务器"><a href="#2、启动服务器" class="headerlink" title="2、启动服务器"></a>2、启动服务器</h4><p>注意，drozer只能运行在python2环境下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\python\python2.7\Scripts&gt;			&#x2F;&#x2F;drozer安装目录</span><br><span class="line">drozer server start			&#x2F;&#x2F;客户端启动服务</span><br></pre></td></tr></table></figure>
 
-<p>参考链接：</p>
-<p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/208525#h2-1">https://www.anquanke.com/post/id/208525#h2-1</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1218242&amp;extra=page=1&filter=author&orderby=dateline">https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1218242&amp;extra=page%3D1%26filter%3Dauthor%26orderby%3Ddateline</a></p>
-<h4 id="一、样本简介及行为分析"><a href="#一、样本简介及行为分析" class="headerlink" title="一、样本简介及行为分析"></a>一、样本简介及行为分析</h4><p>将样本下载到虚拟机后将后缀改为exe，可以看到样本伪装成了eset的升级程序，图标如下</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112318.png" alt="1"></p>
-<p>样本分析的工具有很多，如火绒剑，systracer，Procmon，Sysmon等，这里采用火绒剑进行行为分析</p>
-<p>启动火绒剑后，选择进程过滤</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112329.png" alt="2"></p>
-<p>接着，将我们的进程名字添加进去</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112336.png" alt="3"></p>
-<p>点击确定后，开启监控，然后运行病毒样本</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112345.png" alt="4"></p>
-<p>可以看到病毒伪装成了ESET的更新程序，并弹出了一个对话框来欺骗用户（啧，真狗啊）</p>
-<p>但是，根据我们多年的经验判断，未知程序运行后的对话框、提示框一类的东西纯属骗人，不能信的。这个样本模仿的是ESET的杀软弹框，除此之外，还有些而已软件会尝试伪装成微软官方、office官方等常见权威官方来欺骗用户。因此，当我们运行未知程序时一定要慎而又慎。</p>
-<p>回归正题，在此时的火绒剑窗口中，我们可以看到本程序的所有行为</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112354.png" alt="5"></p>
-<p>但是，让我以活不解的是，我的分析貌似有些问题，大佬们可以扫描到三个可疑项，但是我只能扫描到一个（但是另外两个可疑项确实起了作用，切换别的扫描软件我也没有发现问题所在，需要后续继续努力啊）。下面为了方便大家观察，我上一张大佬的图</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112407.png" alt="6"></p>
-<p>嗯~~~，不愧是大佬的图，三个蓝色的部分很是引人瞩目啊</p>
-<p>第一个是BA_extract_pe：这个动作代表释放PE文件。结合上面的file_touch、file_open、file_write、file_chmod等操作，我们可以知道程序会在C:\Users\xxx\AppData\Roaming这个路径下释放一个名为eset_update.exe的PE文件</p>
-<p>第二个是BA_self_copy：表示自我复制</p>
-<p>第三个是BA_register_autorun：表示应用程序通过注册表将自己写入了开机自启动</p>
-<p>我们可以在上面提到的目录下找到对应的文件</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112422.png" alt="7"></p>
-<p>当然，除了文件相关的行为，我们往下看还可以看到与网络请求相关的行为（毕竟一个病毒不可能只是自启动嘛，不和外界交互一下怎么显得自己很厉害呢）</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112430.png" alt="8"></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112439.png" alt="9"></p>
-<p>根据火绒剑和Fakenet的监控显示，本地主机（192.168.7.38：53）正在不断的向目标主机general-second.org-help.com发起请求。</p>
-<p>通过奇安信的情报平台（<a target="_blank" rel="noopener" href="https://ti.qianxin.com/%EF%BC%89%E5%AF%B9%E8%AF%A5%E5%9C%B0%E5%9D%80%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2">https://ti.qianxin.com/）对该地址进行查询</a></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112448.png" alt="10"></p>
-<p>emmmmm，打了很多标签，下面也有很多的情报来源，一看就不是什么正经网站。</p>
-<p>不过根据标签的显示，我们可以看到该域名很有可能被APT组织KimSuky使用，所以该样本很有可能来源于该组织。而该组织有一个特点，那就是在病毒样本中他们喜欢用一些小动物的英文名称做标记，所以在分析样本时我们也可以稍加注意，说不定会有意外的收获呢。</p>
-<h5 id="1、样本行为总结"><a href="#1、样本行为总结" class="headerlink" title="1、样本行为总结"></a>1、样本行为总结</h5><p><code>1、样本会将自身复制到%appdata%路径下并且重命名为eset_update.exe</code></p>
-<p><code>2、样本会向恶意域名general-second.org-help.com发起请求，进行交互</code></p>
-<h4 id="二、分析流程"><a href="#二、分析流程" class="headerlink" title="二、分析流程"></a>二、分析流程</h4><h5 id="1、样本Pe结构"><a href="#1、样本Pe结构" class="headerlink" title="1、样本Pe结构"></a>1、样本Pe结构</h5><p>借用一些工具（如PEID、DIE）等查看下样本的PE信息是一个好习惯</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112500.png" alt="11"></p>
-<p>利用PEID的插件Krypto ANAlyzer查看文件的加密信息，可以看到BASE64和CRC32两种</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112508.png" alt="12"></p>
-<h5 id="2、导入表分析"><a href="#2、导入表分析" class="headerlink" title="2、导入表分析"></a>2、导入表分析</h5><p>使用IDA加载样本，在Imports窗口中我们可以看到导入表中一共加载了124个API函数。</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112517.png" alt="13"></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112525.png" alt="14"></p>
-<p>上面我圈出了一些API函数，首先是Reg操作相关的API，恶意软件通常会通过注册表实现一系列的恶意操作，如设置开机自启动、获取计算机的一些基本信息等</p>
-<p>除了注册表相关的API，还有CreateFile、GetFileSize、ReadFile等文件操作的API，这里应该是通过这些API实现文件的拷贝。</p>
-<p>CreateProcessA则通常用于创建新进程</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112534.png" alt="15"></p>
-<p>在最下面还有一些网络请求API函数。我们可以选择一个API函数进行交叉引用，一层一层往上找，从而找到最终调用的地方。</p>
-<p>如对InternetOpen进行交叉引用，最终我们可以找到该函数通过WinMain函数中StartAddress的sub_401AA0调用</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112542.png" alt="16"></p>
-<p>通过上述操作，我们可以一点一点摸索到更多的信息</p>
-<h5 id="3、字符串分析"><a href="#3、字符串分析" class="headerlink" title="3、字符串分析"></a>3、字符串分析</h5><p>shift+f12打开字符串窗口，字符串共276行，大部分都很正常，但在字符串表的后半部分，可以看到如下与网络请求相关的信息以及重命名的文件名称：eset_update.exe</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112550.png" alt="17"></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112601.png" alt="18"></p>
-<p>我们也可以对eset_update.exe进行交叉引用，最后确定在WinMain的sub_403600中进行了引用。</p>
-<p>前置工作已经做的差不多了，下面开始上代码。由于篇幅的原因，可能很多地方不能讲的那么详细，有需要的朋友可以翻看参考链接，里面有大佬超级详细的分析，强推！！！</p>
-<h5 id="4、WinMain分析"><a href="#4、WinMain分析" class="headerlink" title="4、WinMain分析"></a>4、WinMain分析</h5><p>IDA加载样本后，代码停在WinMain处，F5反汇编处理</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112610.png" alt="19"></p>
-<p>WinMain里面的函数功能当然是需要自己一点一点的去测试的，至于测试流程我就不在详细叙述（说多了都是泪啊）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">CreateMutexA（win32api）</span><br><span class="line">GetLastError（win32api）</span><br><span class="line">CloseHandle（win32api）</span><br><span class="line">sub_4011E0（自定义函数）</span><br><span class="line">sub_403600（自定义函数）</span><br><span class="line">sub_401580（自定义函数）</span><br><span class="line">sub_401770（自定义函数）</span><br><span class="line">sub_402790（自定义函数）</span><br><span class="line">CreateThread（win32api）</span><br><span class="line"></span><br><span class="line">功能分析：</span><br><span class="line">CreateMutexA：创建相关进程对象</span><br><span class="line">GetLastError：探测本地用户组情况</span><br><span class="line">sub_4011E0：加载dll和相关字串解密获取相关api函数地址</span><br><span class="line">sub_403600：文件的自拷贝和自启动等操作</span><br><span class="line">sub_401580：获取当前环境变量设置</span><br><span class="line">sub_401770：判断系统版本、内存拷贝</span><br><span class="line">sub_402790：注册表操作</span><br><span class="line">CreateThread：创建相关网络请求进程</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142144.png" alt="image-20210730135001527"></p>
+<h4 id="3、连接模拟器"><a href="#3、连接模拟器" class="headerlink" title="3、连接模拟器"></a>3、连接模拟器</h4><p>另开一个终端（启动服务的终端别关，挂着就好）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drozer console connect --server 配置的IP地址</span><br></pre></td></tr></table></figure>
 
-<p>关于GetLastError的一些知识：</p>
-<p>GetLastError多用于返回错误代码，通过辨析错误代码数值来判断下一步应该进行哪种操作。样本中通过判断返回值是否为1379，来判断本地组是否已存在，这点查找资料可知。</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112622.png" alt="20"></p>
-<p>但是经过大佬的提点和多方资料的查找，发现这里判断是否为1379其实并没有什么用。。。。</p>
-<p>这里应该判断GetLastError的值是否等于ERROR_ALREADY_EXISTS，而此处的是否等于1379并没有实际意义，并不能起到防止多开的作用</p>
-<h5 id="5、sub-4011E0"><a href="#5、sub-4011E0" class="headerlink" title="5、sub_4011E0"></a>5、sub_4011E0</h5><p>sub_4011E0函数主要用于加载dll和相关字符串，解密后获取相关API函数地址，函数内部调用sub_401040对传入字符串进行解密处理。解密流程为将加密字符串减5即可。解密后通过加载Kernel32.dll，利用GetProcAddress函数来获取API函数地址，相关部分做了注释，截图如下</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112630.png" alt="21"></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112638.png" alt="22"></p>
-<p>另外，为了方便解密，我写了一个脚本（毕竟那么多API函数和dll文件，一个一个手动算会死人的）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python2</span></span><br><span class="line">s = <span class="string">&#x27;NSNSJY3iqq&#x27;</span></span><br><span class="line"><span class="built_in">str</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">	<span class="built_in">str</span> = <span class="built_in">str</span> + <span class="built_in">chr</span>(<span class="built_in">ord</span>(s[i]) - <span class="number">5</span>)</span><br><span class="line">print(<span class="built_in">str</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210730142148.png" alt="image-20210730135459879"></p>
+<h4 id="4、模块使用"><a href="#4、模块使用" class="headerlink" title="4、模块使用"></a>4、模块使用</h4><h5 id="1、CN"><a href="#1、CN" class="headerlink" title="1、CN"></a>1、CN</h5><p>机翻，凑合着看吧。英文好的建议阅读英文文档，更准确。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">app.activity.forintent                查找能够处理给定意图的活动</span><br><span class="line">app.activity.info                     获取有关导出活动的信息</span><br><span class="line">app.activity.start                    开始一个活动</span><br><span class="line">app.broadcast.info                    获取有关广播接收器的信息</span><br><span class="line">app.broadcast.send                    使用意图发送广播</span><br><span class="line">app.broadcast.sniff                   注册一个可以嗅探特定意图的广播接收器</span><br><span class="line">app.package.attacksurface             得到包的攻击面</span><br><span class="line">app.package.backup                    列出使用备份API的包(允许备份)</span><br><span class="line">app.package.debuggable                找到debuggable包</span><br><span class="line">app.package.info                      获取关于已安装包的信息</span><br><span class="line">app.package.launchintent              获取包的启动意图</span><br><span class="line">app.package.list                      包列表</span><br><span class="line">app.package.manifest                  获取包的AndroidManifest.xml</span><br><span class="line">app.package.native                    查找嵌入在应用程序中的本机库</span><br><span class="line">app.package.shareduid                 寻找具有共享uid的包</span><br><span class="line">app.provider.columns                  列出内容提供程序中的列</span><br><span class="line">app.provider.delete                   从内容提供程序中删除</span><br><span class="line">app.provider.download                 从支持文件的内容提供程序下载文件</span><br><span class="line">app.provider.finduri                  在包中查找引用的内容uri</span><br><span class="line">app.provider.info                     获取关于导出内容提供程序的信息</span><br><span class="line">app.provider.insert                   Insert into a Content Provider</span><br><span class="line">app.provider.query                    插入到内容提供程序</span><br><span class="line">app.provider.read                     从支持文件的内容提供程序读取</span><br><span class="line">app.provider.update                   更新内容提供程序中的记录</span><br><span class="line">app.service.info                      获取导出的服务信息</span><br><span class="line">app.service.send                      向服务发送消息,并显示应答</span><br><span class="line">app.service.start                     开始服务</span><br><span class="line">app.service.stop                      停止服务</span><br><span class="line">auxiliary.webcontentresolver          为内容提供者启动web服务接口</span><br><span class="line">exploit.jdwp.check                    打开@jdwp-control并查看哪些应用程序连接</span><br><span class="line">exploit.pilfer.general.apnprovider    读取APN内容提供商</span><br><span class="line">exploit.pilfer.general.settingsprovider</span><br><span class="line">                                      读取设置内容提供程序</span><br><span class="line">information.datetime                  打印日期&#x2F;时间</span><br><span class="line">information.deviceinfo                获取详细的设备信息</span><br><span class="line">information.permissions               获取设备上包使用的所有权限列表</span><br><span class="line">scanner.activity.browsable            获取所有可从web浏览器调用的BROWSABLE活动</span><br><span class="line">scanner.misc.native                   查找包中包含的本机组件</span><br><span class="line">scanner.misc.readablefiles            在指定的文件夹中找到全局可读的文件</span><br><span class="line">scanner.misc.secretcodes              搜索可以从拨号器使用的密码</span><br><span class="line">scanner.misc.sflagbinaries            在给定的文件夹中找到suid&#x2F;sgid二进制文件(默认是&#x2F;system)</span><br><span class="line">scanner.misc.writablefiles            在指定的文件夹中找到全局可写的文件</span><br><span class="line">scanner.provider.finduris             搜索可以从我们的上下文查询的内容提供者</span><br><span class="line">scanner.provider.injection            测试SQL注入漏洞的内容提供程序</span><br><span class="line">scanner.provider.sqltables            查找可通过SQL注入漏洞访问的表</span><br><span class="line">scanner.provider.traversal            测试基本目录遍历漏洞的内容提供程序</span><br><span class="line">shell.exec                            执行单个Linux命令</span><br><span class="line">shell.send                            向远程侦听器发送ASH shell</span><br><span class="line">shell.start                           进入交互式Linux shell</span><br><span class="line">tools.file.download                   下载一份文件</span><br><span class="line">tools.file.md5sum                     获取md5文件校验和</span><br><span class="line">tools.file.size                       获取文件大小</span><br><span class="line">tools.file.upload                     上传一个文件</span><br><span class="line">tools.setup.busybox                   安装Busybox</span><br><span class="line">tools.setup.minimalsu                 在设备上准备&#39;minimal-su&#39;二进制安装</span><br></pre></td></tr></table></figure>
 
-<p>总的来说，这块内容就是调用了函数sub_401040处理加密字符串，加载了三个dll文件WININET.dll、urlmon.dll、Kennel32.dll，通过GetProcAddress函数获取相关API地址。</p>
-<h5 id="6、sub-403600"><a href="#6、sub-403600" class="headerlink" title="6、sub_403600"></a>6、sub_403600</h5><p>sub_403600函数内部功能为文件自拷贝、自启动设置、程序弹窗设置。程序首先通过SHGetFolderPathA函数获取自启动文件夹<code>C:/Documents and Settings/当前用户/Application Data</code>，通过GetModuleFileNameA函数获取当前程序运行的直接路径，通过strcmp判断当前执行文件夹是否等于<code>C:/Documents and Settings/当前用户/Application Data</code>。如果相同，通过CopyFileA将文件拷贝到<code>C:/Documents and Settings/当前用户/Application Data</code>目录下，然后通过向注册表<code>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code>写入eset_update值，从而使病毒样本达到自启动的目的。</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112649.png" alt="23"></p>
-<h5 id="7、sub-401580"><a href="#7、sub-401580" class="headerlink" title="7、sub_401580"></a>7、sub_401580</h5><p>sub_401580函数主要功能为获取本机网卡信息和获取磁盘序列号以及随机数的生成，首先通过GetAdaptersInfo获取网卡信息，然后又通过GetVolumeInformationA来获取磁盘序列号，获取之后，还会通过调用GetTickCount获取时间来生成一个随机数</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112702.png" alt="24"></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112735.png" alt="25"></p>
-<h5 id="8、sub-401770"><a href="#8、sub-401770" class="headerlink" title="8、sub_401770"></a>8、sub_401770</h5><p>sub_401770函数用于获取操作系统的一些基本信息，如通过GetVersion函数获取相关系统版本信息，通过GetNativeSystemInfo获取系统位数，还有就是将获取到的信息格式化成新的字符串</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112743.png" alt="26"></p>
-<h5 id="9、sub-402790"><a href="#9、sub-402790" class="headerlink" title="9、sub_402790"></a>9、sub_402790</h5><p>sub_402790函数用于注册表信息的修改，主要就是对XhwjjsWnggtsxItrfns和XTKY\FWJaRnhwtxtkya\nsit|xaHzwwjsy[jwxntsaXhwjjsxf{jwx解密后做拼接，然后将存储在qword_41A620处的恶意url（<code>generl-second.org-help.com</code>）写入注册表内</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112751.png" alt="27"></p>
-<h5 id="10、CreateThread"><a href="#10、CreateThread" class="headerlink" title="10、CreateThread"></a>10、CreateThread</h5><p>CreateThread函数用于创建相关网络请求进程，内部包括设置请求头、请求方式和协议号，同时还包含了base64编码等操作</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112800.png" alt="28"></p>
-<p>其中，sub_402F30函数内设置了请求头、请求方式、协议号</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112809.png" alt="29"></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112821.png" alt="30"></p>
-<h5 id="11、sub-401AA0"><a href="#11、sub-401AA0" class="headerlink" title="11、sub_401AA0"></a>11、sub_401AA0</h5><p>sub_401AA0函数进去后，经过一系列验算后会发起网络请求。首先通过SHGetFolderPathA获取环境变量路径，并且对wzsiqq873j}j进行解密。在往下，程序会加载一个rundll32.exe文件，说明程序在后面会下载一个dll文件到本地，然后通过rundll32.exe调用启动dll文件。再往下程序会获取C:\Users\用户\AppData\Local\Temp\相关文件下，然后将tmp.LOG与该文件夹进行拼接。</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112830.png" alt="31"></p>
-<p>这里会对文件名进行一个分割添加动物后缀，然后修改<code>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code>和<code>SOFTWARE\Microsoft\Windows\CurrentVersion\Screensavers\ScreenRibbonsDomain</code>两个参数达到自启动和修改屏保属性的目的</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112839.png" alt="32"></p>
-<p>动物名称标记</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112847.png" alt="33"></p>
-<p>这里为修改注册表参数</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112855.png" alt="34"></p>
-<p>继续往下看，接下来样本会将传进来的参数通过<code>|</code>分割，然后比较分割后的字符串是否有tiger标志。如果包含了tiger标志，则通过cmd执行指令，这里的指令是服务器下发的。</p>
-<p>样本远控部分模块</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210414112903.png" alt="35"></p>
-<p>在代码中，我们除了tiger外还可以看到wolf、snake、bear、monkey等多种动物标记。这些都表明了该样本属于KimSuky的远控木马，下发的远控指令为一些动物名称。</p>
-<h4 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sub_4011E0：加载dll和相关字符串解密获取相关api函数地址</span><br><span class="line">sub_403600：移动自身并重命名、设置开机自启动、创建对话框</span><br><span class="line">sub_401580：获取网卡信息、磁盘信息、随机数拼接</span><br><span class="line">sub_401770：获取操作系统版本信息、系统位数</span><br><span class="line">sub_402790：注册表操作</span><br><span class="line">CreateThread：创建相关网络请求进程</span><br><span class="line">sub_401AA0：经过一系列验算后发起网络请求</span><br></pre></td></tr></table></figure>
+<h5 id="2、EN"><a href="#2、EN" class="headerlink" title="2、EN"></a>2、EN</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">app.activity.forintent                Find activities that can handle the given intent</span><br><span class="line">app.activity.info                     Gets information about exported activities.</span><br><span class="line">app.activity.start                    Start an Activity</span><br><span class="line">app.broadcast.info                    Get information about broadcast receivers</span><br><span class="line">app.broadcast.send                    Send broadcast using an intent</span><br><span class="line">app.broadcast.sniff                   Register a broadcast receiver that can sniff particular intents</span><br><span class="line">app.package.attacksurface             Get attack surface of package</span><br><span class="line">app.package.backup                    Lists packages that use the backup API (returns true on</span><br><span class="line">                                      FLAG_ALLOW_BACKUP)</span><br><span class="line">app.package.debuggable                Find debuggable packages</span><br><span class="line">app.package.info                      Get information about installed packages</span><br><span class="line">app.package.launchintent              Get launch intent of package</span><br><span class="line">app.package.list                      List Packages</span><br><span class="line">app.package.manifest                  Get AndroidManifest.xml of package</span><br><span class="line">app.package.native                    Find Native libraries embedded in the application.</span><br><span class="line">app.package.shareduid                 Look for packages with shared UIDs</span><br><span class="line">app.provider.columns                  List columns in content provider</span><br><span class="line">app.provider.delete                   Delete from a content provider</span><br><span class="line">app.provider.download                 Download a file from a content provider that supports files</span><br><span class="line">app.provider.finduri                  Find referenced content URIs in a package</span><br><span class="line">app.provider.info                     Get information about exported content providers</span><br><span class="line">app.provider.insert                   Insert into a Content Provider</span><br><span class="line">app.provider.query                    Query a content provider</span><br><span class="line">app.provider.read                     Read from a content provider that supports files</span><br><span class="line">app.provider.update                   Update a record in a content provider</span><br><span class="line">app.service.info                      Get information about exported services</span><br><span class="line">app.service.send                      Send a Message to a service, and display the reply</span><br><span class="line">app.service.start                     Start Service</span><br><span class="line">app.service.stop                      Stop Service</span><br><span class="line">auxiliary.webcontentresolver          Start a web service interface to content providers.</span><br><span class="line">exploit.jdwp.check                    Open @jdwp-control and see which apps connect</span><br><span class="line">exploit.pilfer.general.apnprovider    Reads APN content provider</span><br><span class="line">exploit.pilfer.general.settingsprovider</span><br><span class="line">                                      Reads Settings content provider</span><br><span class="line">information.datetime                  Print Date&#x2F;Time</span><br><span class="line">information.deviceinfo                Get verbose device information</span><br><span class="line">information.permissions               Get a list of all permissions used by packages on the device</span><br><span class="line">scanner.activity.browsable            Get all BROWSABLE activities that can be invoked from the web browser</span><br><span class="line">scanner.misc.native                   Find native components included in packages</span><br><span class="line">scanner.misc.readablefiles            Find world-readable files in the given folder</span><br><span class="line">scanner.misc.secretcodes              Search for secret codes that can be used from the dialer</span><br><span class="line">scanner.misc.sflagbinaries            Find suid&#x2F;sgid binaries in the given folder (default is &#x2F;system).</span><br><span class="line">scanner.misc.writablefiles            Find world-writable files in the given folder</span><br><span class="line">scanner.provider.finduris             Search for content providers that can be queried from our context.</span><br><span class="line">scanner.provider.injection            Test content providers for SQL injection vulnerabilities.</span><br><span class="line">scanner.provider.sqltables            Find tables accessible through SQL injection vulnerabilities.</span><br><span class="line">scanner.provider.traversal            Test content providers for basic directory traversal vulnerabilities.</span><br><span class="line">shell.exec                            Execute a single Linux command.</span><br><span class="line">shell.send                            Send an ASH shell to a remote listener.</span><br><span class="line">shell.start                           Enter into an interactive Linux shell.</span><br><span class="line">tools.file.download                   Download a File</span><br><span class="line">tools.file.md5sum                     Get md5 Checksum of file</span><br><span class="line">tools.file.size                       Get size of file</span><br><span class="line">tools.file.upload                     Upload a File</span><br><span class="line">tools.setup.busybox                   Install Busybox.</span><br><span class="line">tools.setup.minimalsu                 Prepare &#39;minimal-su&#39; binary installation on the device.</span><br></pre></td></tr></table></figure>
 
-<h4 id="四、体会"><a href="#四、体会" class="headerlink" title="四、体会"></a>四、体会</h4><p>忙忙碌碌好多天，总算是了却了一段心事。分析木马其实并不算难，难的问题在于静下心来一点一点的分析、测试。毕竟要想一次就精准把控到关键点基本不可能，哪怕再厉害的大佬也有跑飞的时候。不急不躁，才是分析木马和病毒的最佳状态。</p>
+<h4 id="5、中文乱码"><a href="#5、中文乱码" class="headerlink" title="5、中文乱码"></a>5、中文乱码</h4><p>修改package.py文件内容，重启drozer即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2.7\Lib\site-packages\drozer\modules\app</span><br></pre></td></tr></table></figure>
+
+<p><img src="image/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20210809110443753.png" alt="image-20210809110443753"></p>
+<p><img src="image/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20210809110609582.png" alt="image-20210809110609582"></p>
 
       
 
@@ -356,16 +240,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2021-03-10
+    2021-08-10
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-05-30
+    2021-08-10
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://foxcookie.github.io/2021/03/10/病毒分析之伪装eset升级程序/" title="病毒分析之伪装eset升级程序" target="_blank">病毒分析之伪装eset升级程序</a>
+    <a href="https://foxcookie.github.io/2021/08/10/drozer简单使用/" title="drozer简单使用" target="_blank">drozer简单使用</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://foxcookie.github.io/2021/03/10/病毒分析之伪装eset升级程序/" title="病毒分析之伪装eset升级程序" target="_blank">https://foxcookie.github.io/2021/03/10/病毒分析之伪装eset升级程序/</a>
+    <a href="https://foxcookie.github.io/2021/08/10/drozer简单使用/" title="drozer简单使用" target="_blank">https://foxcookie.github.io/2021/08/10/drozer简单使用/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本博客所有文章除特别声明外，均采用
@@ -423,11 +307,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">病毒</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">样本分析</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">drozer</a>
         		</li>
       		
 		</ul>
@@ -483,7 +363,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://foxcookie.github.io/2021/03/10/%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90%E4%B9%8B%E4%BC%AA%E8%A3%85eset%E5%8D%87%E7%BA%A7%E7%A8%8B%E5%BA%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://foxcookie.github.io/2021/08/10/drozer%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -497,18 +377,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/03/16/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%AD%E7%99%BD%E7%9B%92%E5%92%8C%E9%BB%91%E7%9B%92%E6%BC%8F%E6%B4%9E%E6%90%9C%E5%AF%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E6%88%98%E6%96%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          无线路由器中白盒和黑盒漏洞搜寻之间的战斗
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/22/vim%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vim命令详解</div>
+    <a href="/2021/08/01/win10%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">win10关闭端口占用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -535,7 +406,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A0%B7%E6%9C%AC%E7%AE%80%E4%BB%8B%E5%8F%8A%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">一、样本简介及行为分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%A0%B7%E6%9C%AC%E8%A1%8C%E4%B8%BA%E6%80%BB%E7%BB%93"><span class="toc-number">2.1.</span> <span class="toc-text">1、样本行为总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">二、分析流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E6%A0%B7%E6%9C%ACPe%E7%BB%93%E6%9E%84"><span class="toc-number">3.1.</span> <span class="toc-text">1、样本Pe结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%AF%BC%E5%85%A5%E8%A1%A8%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">2、导入表分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E6%9E%90"><span class="toc-number">3.3.</span> <span class="toc-text">3、字符串分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81WinMain%E5%88%86%E6%9E%90"><span class="toc-number">3.4.</span> <span class="toc-text">4、WinMain分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81sub-4011E0"><span class="toc-number">3.5.</span> <span class="toc-text">5、sub_4011E0</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%E3%80%81sub-403600"><span class="toc-number">3.6.</span> <span class="toc-text">6、sub_403600</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7%E3%80%81sub-401580"><span class="toc-number">3.7.</span> <span class="toc-text">7、sub_401580</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8%E3%80%81sub-401770"><span class="toc-number">3.8.</span> <span class="toc-text">8、sub_401770</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9%E3%80%81sub-402790"><span class="toc-number">3.9.</span> <span class="toc-text">9、sub_402790</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10%E3%80%81CreateThread"><span class="toc-number">3.10.</span> <span class="toc-text">10、CreateThread</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11%E3%80%81sub-401AA0"><span class="toc-number">3.11.</span> <span class="toc-text">11、sub_401AA0</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">三、总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BD%93%E4%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">四、体会</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E9%85%8D%E7%BD%AE%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">1、配置客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">2、启动服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E8%BF%9E%E6%8E%A5%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">3、连接模拟器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">4、模块使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81CN"><span class="toc-number">4.1.</span> <span class="toc-text">1、CN</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81EN"><span class="toc-number">4.2.</span> <span class="toc-text">2、EN</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">5、中文乱码</span></a></li></ol>
                     </div>
                 </span>
             </div>
