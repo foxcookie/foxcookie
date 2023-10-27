@@ -93,7 +93,7 @@
 		</nav>
 
 		<nav style="margin-top: 80px; font-size: 13px; color: #4d4d4d;">
-			<p>总文章数 52</p>
+			<p>总文章数 53</p>
 		</nav>
 		
 	</header>		
@@ -164,6 +164,104 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Syscall项目笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/10/11/Syscall%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/">tar命令详解</a>
+    </h1>
+  
+
+        
+        <a href="/2023/10/11/Syscall%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2023-10-11T08:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-什么是Syscall"><a href="#1-什么是Syscall" class="headerlink" title="1. 什么是Syscall"></a>1. 什么是Syscall</h1><p><code>Syscall</code>是一种绕过EDR<code>用户态hook</code>的方式，它通过获取<code>系统调用号</code>，并构造<code>syscall stub</code>的汇编指令直接进入<code>内核态API</code>调用，从而避免了用户态hook的检测。在使用这种技术时，不可避免的引入了一些新的检测特征，如<code>syscall stub</code>中引入的硬编码以及基于栈回溯的<code>syscall</code>的调用防的检测等等。不同的syscall项目也提供了针对这类检测的不同绕过方式。此外，各个项目也在获取系统调用号的方式上有一些区别。</p>
+<p>基本的<code>syscall stub</code>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov		r10,rcx</span><br><span class="line">mov		eax,[系统调用号]</span><br><span class="line">syscall</span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2023/10/11/Syscall%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
+      
+
+
+
+<!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+
+
+<!-- 添加版权声明》 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Syscall</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/10/11/Syscall%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-HG532e命令执行漏洞复现(CVE-2017-17215)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1043,106 +1141,6 @@
 
 
   
-    <article id="post-喵桑活下去-小程序解包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/12/23/%E5%96%B5%E6%A1%91%E6%B4%BB%E4%B8%8B%E5%8E%BB-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%A7%A3%E5%8C%85/">喵桑活下去-小程序解包</a>
-    </h1>
-  
-
-        
-        <a href="/2022/12/23/%E5%96%B5%E6%A1%91%E6%B4%BB%E4%B8%8B%E5%8E%BB-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%A7%A3%E5%8C%85/" class="archive-article-date">
-  	<time datetime="2022-12-23T02:37:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-抓包"><a href="#1-抓包" class="headerlink" title="1. 抓包"></a>1. 抓包</h1><p>emmmmm，微信最新版一装上测试机就G了，无限重启。可能是我测试机版本的问题啥的吧，等回头有空了修一修。</p>
-        
-          <a class="article-more-a" href="/2022/12/23/%E5%96%B5%E6%A1%91%E6%B4%BB%E4%B8%8B%E5%8E%BB-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%A7%A3%E5%8C%85/#more">more >></a>
-        
-      
-
-
-
-<!-- 《添加版权声明 -->
-
-    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-
-
-<!-- 添加版权声明》 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游戏</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/12/23/%E5%96%B5%E6%A1%91%E6%B4%BB%E4%B8%8B%E5%8E%BB-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%A7%A3%E5%8C%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
@@ -1400,6 +1398,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">车联网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Syscall</a>
               </li>
             
             <div class="clearfix"></div>
