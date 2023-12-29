@@ -93,7 +93,7 @@
 		</nav>
 
 		<nav style="margin-top: 80px; font-size: 13px; color: #4d4d4d;">
-			<p>总文章数 54</p>
+			<p>总文章数 55</p>
 		</nav>
 		
 	</header>		
@@ -164,6 +164,208 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-常见漏洞原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/15/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86/">常见漏洞原理</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/15/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-07-15T05:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="https://raw.githubusercontent.com/foxcookie/Picture/main/img/20210715134051.jpg" alt="夏目" style="zoom: 67%;" />
+
+<p>收集的一些漏洞原理</p>
+        
+          <a class="article-more-a" href="/2021/07/15/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86/#more">more >></a>
+        
+      
+
+
+
+<!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+
+
+<!-- 添加版权声明》 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二进制</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/15/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-malware-DLL注入病毒分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/15/malware-DLL%E6%B3%A8%E5%85%A5%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/">malware_DLL注入病毒分析</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/15/malware-DLL%E6%B3%A8%E5%85%A5%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2021-04-15T06:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>学无止境、道阻且长啊。继续分析病毒的旅程，这次是一个DLL注入病毒。</p>
+<p>病毒名称：bea213f1c932455aee8ff6fde346b1d1960d57ff</p>
+<p>样本MD5：6E4B0A001C493F0FCF8C5E9020958F38</p>
+<p>app.any.run地址：<a target="_blank" rel="noopener" href="https://app.any.run/tasks/7d905b18-2ca8-4cbd-8974-6134daddcb4a/">https://app.any.run/tasks/7d905b18-2ca8-4cbd-8974-6134daddcb4a/</a></p>
+<p>提取密码：infected</p>
+        
+          <a class="article-more-a" href="/2021/04/15/malware-DLL%E6%B3%A8%E5%85%A5%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/#more">more >></a>
+        
+      
+
+
+
+<!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+
+
+<!-- 添加版权声明》 -->
+
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">病毒</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">样本分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/15/malware-DLL%E6%B3%A8%E5%85%A5%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-tar命令详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -936,203 +1138,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/11/12/Jupyter%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD%E4%B8%8E%E9%87%8D%E8%A3%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gcc命令详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/11/gcc%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">gcc命令详解</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/11/gcc%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-11-11T10:37:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>简介：</strong>关于gcc的一些使用参数和总结，后续有新的收获会持续补充。参考链接已放在文末，如有侵权请联系删除</p>
-<h1 id="1-gcc编译文件后缀"><a href="#1-gcc编译文件后缀" class="headerlink" title="1. gcc编译文件后缀"></a>1. gcc编译文件后缀</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.c		C语言源代码文件</span><br><span class="line">.a		由目标文件构成的档案库文件</span><br><span class="line">.C		C++源码文件</span><br><span class="line">.h		程序所包含的头文件</span><br><span class="line">.i		已经预处理过的C源代码文件</span><br><span class="line">.ii		已经预处理过的C++源代码文件</span><br><span class="line">.m		Objective-C源代码文件</span><br><span class="line">.o		编译后的目标文件</span><br><span class="line">.s		汇编语言源代码文件</span><br><span class="line">.S		经过预编译的汇编语言源代码文件</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/11/11/gcc%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#more">more >></a>
-        
-      
-
-
-
-<!-- 《添加版权声明 -->
-
-    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-
-
-<!-- 添加版权声明》 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/11/gcc%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-攻防世界-pwn-CGfsb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/06/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-pwn-CGfsb/">攻防世界_pwn_CGfsb</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/06/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-pwn-CGfsb/" class="archive-article-date">
-  	<time datetime="2020-10-06T12:53:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>简介：</strong></p>
-<p>逆到深处自然pwn，学习pwn的第一道正式意义上的题目。</p>
-<p><strong>参考blog：</strong></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zz_Caleb/article/details/88980866">https://blog.csdn.net/zz_Caleb/article/details/88980866</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/355e4badab50">https://www.jianshu.com/p/355e4badab50</a></p>
-        
-          <a class="article-more-a" href="/2020/10/06/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-pwn-CGfsb/#more">more >></a>
-        
-      
-
-
-
-<!-- 《添加版权声明 -->
-
-    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-
-
-<!-- 添加版权声明》 -->
-
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CTF-pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/06/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-pwn-CGfsb/">展开全文 >></a>
         </p>
       
 
